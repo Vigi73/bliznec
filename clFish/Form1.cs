@@ -8,6 +8,10 @@ namespace clFish
         string tmp = string.Empty;        
         bool fl = false;
         bool flm = false;
+        int small = default, standings = default;
+        int maxFish = 0;
+        string mFish = "0";
+
 
         public Form1()
         {
@@ -17,10 +21,6 @@ namespace clFish
             {
                 button3.Text = "Пуск";
             }
-            
-
-
-
         }
 
 
@@ -41,22 +41,68 @@ namespace clFish
         }
         string path = @"log.txt";
 
+
         private void mainTimer_Tick(object sender, EventArgs e)
         {
-           
-
            try
             {
-                string s = File.ReadAllLines(path).Last();
+                //string s = File.ReadAllLines(path).Last();
+                string s = File.ReadLines(path).Last(); // read last row in the file
+                
+
                 if (tmp != s)
                 {
+                    if (s.Split(";")[2].Trim() == "мелочь")
+                    {
+                        small++;
+                    }
+                    else
+                    {
+                        standings++;
+                    }
+
                     listBox1.Items.Add(s);
+
+
+                    mFish = getMaxFish(s);
+
+
+
+                    toolStripStatusLabel1.Text = $"Всего: {listBox1.Items.Count}";
+                    toolStripStatusLabel3.Text = $"Мелочь: {small}";
+                    toolStripStatusLabel2.Text = $"Зачётов: {standings}";
+                    if (mFish != "")
+                    {
+                        toolStripStatusLabel4.Text = $"Max: {mFish}";
+                    }
+                    
                     tmp = s;
-                    listBox1.TopIndex = listBox1.Items.Count - 1;
+                    listBox1.TopIndex = listBox1.Items.Count - 1; // for autoscrolling
                 }
             }
             catch (Exception ex)
             {   
+            }
+        }
+
+        private string getMaxFish(string s)
+        {
+            string widthFish = s.Split(";")[1];
+            if (widthFish.Contains('.'))
+            {
+                if (widthFish.Split(".")[1].Length == 1) widthFish += "00";
+                if (widthFish.Split(".")[1].Length == 2) widthFish += "0";
+            }
+            int result = int.Parse(widthFish.Replace(".", ""));
+
+            if (result > maxFish)
+            {
+                maxFish = result;
+                return widthFish;
+            }   
+            else
+            {
+                return string.Empty;
             }
 
         }
