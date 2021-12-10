@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5lpGMHcoadsTDwG0YdD94FZHNuOiesJVRJXkEh0nh10/GAx/jQFtheFQcL3Rgl0Otn1I50+xXdA4ByLzDOt7MA==",
+  "success": true,
+  "projectFilePath": "E:\\projects\\c#\\clFish\\clFish\\clFish.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vigi\\.nuget\\packages\\opencv\\2.4.11\\opencv.2.4.11.nupkg.sha512"
+  ],
+  "logs": []
+}
