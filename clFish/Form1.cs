@@ -11,6 +11,7 @@ namespace clFish
         int small = default, standings = default;
         int maxFish = 0;
         string mFish = "0";
+        string path = @"log.txt";
 
 
         public Form1()
@@ -22,7 +23,6 @@ namespace clFish
                 button3.Text = "Пуск";
             }
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,9 +39,7 @@ namespace clFish
             button2.Visible=false;
             button1.Visible=true;
         }
-        string path = @"log.txt";
-
-
+                
         private void mainTimer_Tick(object sender, EventArgs e)
         {
            try
@@ -114,8 +112,7 @@ namespace clFish
             listBox1.Items.Add("Лог файл очищен...");
             tmp = String.Empty;
         }
-
-        
+                
         private void button3_Click(object sender, EventArgs e)
         {
             if (!fl)
