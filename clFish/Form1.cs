@@ -169,9 +169,29 @@ namespace clFish
 
         string ttmp = string.Empty;
 
+
+        private int getRealFish(string v)
+        {
+            string tVes = string.Empty;
+
+            if (v.Contains('.'))
+            {
+                if (v.Split(".")[1].Length < 2) tVes = v.Replace(".", "") + "00";
+                if (v.Split(".")[1].Length < 3) tVes = v.Replace(".", "") + "0";
+            }
+            else
+            {
+                tVes = v;
+            }
+            return int.Parse(tVes);
+        }
+
+
         private void bliznec(string? lastRow)
         {
-            if (lastRow.Split(";")[0] == comboBox1.Text)
+            int wgFish = getRealFish(lastRow.Split(";")[1]); 
+
+            if (lastRow.Split(";")[0] == comboBox1.Text && int.Parse(textBox1.Text) >= wgFish)
             {
                 if (ttmp != lastRow)
                 {
@@ -180,7 +200,7 @@ namespace clFish
                     listBox2.TopIndex = listBox2.Items.Count - 1;
                 }
             }
-            if (lastRow.Split(";")[0] == comboBox2.Text)
+            if (lastRow.Split(";")[0] == comboBox2.Text && int.Parse(textBox1.Text) >= wgFish)
             {
                 if (ttmp != lastRow)
                 {
@@ -190,5 +210,7 @@ namespace clFish
                 }                
             }
         }
+
+     
     }
 }
