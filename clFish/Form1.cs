@@ -151,6 +151,44 @@ namespace clFish
             {
                 this.TopMost = false;
             }
+
+            if (checkBox2.Checked)
+            {
+                var lastRow = listBox1.Items[^1].ToString();
+                bliznec(lastRow);
+            }
+            else
+            {
+                listBox2.Items.Clear();
+                listBox3.Items.Clear();
+            }
+            
+
+
+        }
+
+        string ttmp = string.Empty;
+
+        private void bliznec(string? lastRow)
+        {
+            if (lastRow.Split(";")[0] == comboBox1.Text)
+            {
+                if (ttmp != lastRow)
+                {
+                    listBox2.Items.Add(lastRow.Split(";")[1]);
+                    ttmp = lastRow;
+                    listBox2.TopIndex = listBox2.Items.Count - 1;
+                }
+            }
+            if (lastRow.Split(";")[0] == comboBox2.Text)
+            {
+                if (ttmp != lastRow)
+                {
+                    listBox3.Items.Add(lastRow.Split(";")[1]);
+                    ttmp = lastRow;
+                    listBox3.TopIndex = listBox3.Items.Count - 1;
+                }                
+            }
         }
     }
 }
