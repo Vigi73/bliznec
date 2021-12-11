@@ -50,6 +50,7 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtLog = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
@@ -151,7 +152,7 @@
             // chTimer
             // 
             this.chTimer.Enabled = true;
-            this.chTimer.Interval = 300;
+            this.chTimer.Interval = 500;
             this.chTimer.Tick += new System.EventHandler(this.chTimer_Tick);
             // 
             // statusStrip1
@@ -226,6 +227,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtLog);
             this.tabPage1.Controls.Add(this.checkBox2);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.listBox3);
@@ -241,6 +243,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Близнецы";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtLog
+            // 
+            this.txtLog.Location = new System.Drawing.Point(141, 214);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.Size = new System.Drawing.Size(305, 63);
+            this.txtLog.TabIndex = 12;
             // 
             // checkBox2
             // 
@@ -268,7 +278,7 @@
             this.listBox3.ItemHeight = 17;
             this.listBox3.Location = new System.Drawing.Point(226, 100);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(220, 140);
+            this.listBox3.Size = new System.Drawing.Size(220, 106);
             this.listBox3.TabIndex = 5;
             // 
             // listBox2
@@ -279,7 +289,7 @@
             this.listBox2.ItemHeight = 17;
             this.listBox2.Location = new System.Drawing.Point(6, 100);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(220, 140);
+            this.listBox2.Size = new System.Drawing.Size(220, 106);
             this.listBox2.TabIndex = 4;
             // 
             // label2
@@ -2664,6 +2674,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -2714,5 +2725,6 @@
         private TabPage tabPage2;
         private TextBox textBox1;
         private CheckBox checkBox2;
+        private TextBox txtLog;
     }
 }

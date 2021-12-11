@@ -12,6 +12,8 @@ namespace clFish
         int maxFish = 0;
         string mFish = "0";
         string path = @"log.txt";
+        int wgFish = 0;
+        string tVes = string.Empty;
 
 
         public Form1()
@@ -170,28 +172,45 @@ namespace clFish
         string ttmp = string.Empty;
 
 
-        private int getRealFish(string v)
+        private void getRealFish(string v)
         {
-            string tVes = string.Empty;
-
             if (v.Contains('.'))
             {
-                if (v.Split(".")[1].Length < 2) tVes = v.Replace(".", "") + "00";
-                if (v.Split(".")[1].Length < 3) tVes = v.Replace(".", "") + "0";
+                switch (v.Split(".")[1].Length)
+                {
+                    case 3:
+                        tVes = v.Replace(".", "");
+                        break;
+                    case 2:
+                        tVes = v.Replace(".", "") + "0";
+                        break;
+                    case 1:
+                        tVes = v.Replace(".", "") + "00";
+                        break;
+                }   
             }
             else
             {
                 tVes = v;
             }
-            return int.Parse(tVes);
+
+            txtLog.Text = tVes;
+            
         }
 
 
         private void bliznec(string? lastRow)
         {
-            int wgFish = getRealFish(lastRow.Split(";")[1]); 
+            try
+            {
+                getRealFish(lastRow.Split(";")[1].Trim());
+                
+            }
+            catch 
+            { }
+            
 
-            if (lastRow.Split(";")[0] == comboBox1.Text && int.Parse(textBox1.Text) >= wgFish)
+            if (lastRow.Split(";")[0] == comboBox1.Text && Int32.Parse(tVes) >= Convert.ToInt32(textBox1.Text))
             {
                 if (ttmp != lastRow)
                 {
@@ -200,7 +219,7 @@ namespace clFish
                     listBox2.TopIndex = listBox2.Items.Count - 1;
                 }
             }
-            if (lastRow.Split(";")[0] == comboBox2.Text && int.Parse(textBox1.Text) >= wgFish)
+            if (lastRow.Split(";")[0] == comboBox2.Text && Int32.Parse(tVes) >= Convert.ToInt32(textBox1.Text))
             {
                 if (ttmp != lastRow)
                 {
