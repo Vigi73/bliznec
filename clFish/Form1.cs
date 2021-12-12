@@ -158,14 +158,15 @@ namespace clFish
             {
                 var lastRow = listBox1.Items[^1].ToString();
                 bliznec(lastRow);
+                button4_Click(null, null);
             }
             else
             {
-                listBox2.Items.Clear();
-                listBox3.Items.Clear();
+                /*listBox2.Items.Clear();
+                listBox3.Items.Clear();*/
             }
-            
 
+            
 
         }
 
@@ -194,10 +195,26 @@ namespace clFish
                 tVes = v;
             }
 
-            txtLog.Text = tVes;
+            //txtLog.Text = tVes;
             
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            foreach(string it in listBox2.Items)
+            {
+
+                int index = listBox3.FindString(it);
+                if (index != -1)
+                {
+                    txtLog.ForeColor = Color.Red;
+                    txtLog.Text = $"{it}";
+                }
+                else
+                {                 
+                }               
+            }
+        }
 
         private void bliznec(string? lastRow)
         {

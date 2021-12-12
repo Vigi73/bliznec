@@ -50,6 +50,7 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -100,7 +101,7 @@
             // 
             // mainTimer
             // 
-            this.mainTimer.Interval = 500;
+            this.mainTimer.Interval = 600;
             this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
             // 
             // menuStrip1
@@ -227,6 +228,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.txtLog);
             this.tabPage1.Controls.Add(this.checkBox2);
             this.tabPage1.Controls.Add(this.textBox1);
@@ -244,12 +246,23 @@
             this.tabPage1.Text = "Близнецы";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(114, 212);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(106, 31);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Найти";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(141, 214);
+            this.txtLog.Location = new System.Drawing.Point(230, 214);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(305, 63);
+            this.txtLog.Size = new System.Drawing.Size(216, 63);
             this.txtLog.TabIndex = 12;
             // 
             // checkBox2
@@ -2681,7 +2694,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClFIsh";
+            this.Text = "ClFIsh 1.0.1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -2726,5 +2739,6 @@
         private TextBox textBox1;
         private CheckBox checkBox2;
         private TextBox txtLog;
+        private Button button4;
     }
 }
