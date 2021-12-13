@@ -46,6 +46,14 @@ namespace clFish
                 
         private void mainTimer_Tick(object sender, EventArgs e)
         {
+            if (lstTargets.Items.Count != 0)
+            {
+                pictureBox1.Visible = true;
+            }
+            else
+            {
+                pictureBox1.Visible = false;
+            }
            try
             {
                 //string s = File.ReadAllLines(path).Last();
