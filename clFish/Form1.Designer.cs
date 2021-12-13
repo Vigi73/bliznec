@@ -50,7 +50,7 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lstTargets = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -66,6 +66,7 @@
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -229,7 +230,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.lstTargets);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.checkBox2);
@@ -248,14 +249,15 @@
             this.tabPage1.Text = "Близнецы";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // pictureBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(88, 237);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 17);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Найдены совпадения:";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(165, 207);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // lstTargets
             // 
@@ -2718,6 +2720,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2756,6 +2759,6 @@
         private CheckBox checkBox2;
         private Button button4;
         private ListBox lstTargets;
-        private Label label3;
+        private PictureBox pictureBox1;
     }
 }
