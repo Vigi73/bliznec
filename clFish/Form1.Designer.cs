@@ -341,6 +341,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
+            "*",
             "Абрамитес мраморный",
             "Австралийский анчоус",
             "Австралийский колючепер",
@@ -1511,6 +1512,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
+            "*",
             "Абрамитес мраморный",
             "Австралийский анчоус",
             "Австралийский колючепер",
@@ -2708,7 +2710,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClFIsh 1.0.1";
+            this.Text = "ClFIsh 1.0.2";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

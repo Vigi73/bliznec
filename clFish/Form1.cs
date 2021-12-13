@@ -247,7 +247,7 @@ namespace clFish
             { }
             
 
-            if (lastRow.Split(";")[0] == comboBox1.Text && Int32.Parse(tVes) >= Convert.ToInt32(textBox1.Text))
+            if (lastRow.Split(";")[0] == comboBox1.Text && Int32.Parse(tVes) >= Convert.ToInt32(textBox1.Text) || comboBox1.Text == "*")
             {
                 if (ttmp != lastRow)
                 {
@@ -256,7 +256,7 @@ namespace clFish
                     listBox2.TopIndex = listBox2.Items.Count - 1;
                 }
             }
-            if (lastRow.Split(";")[0] == comboBox2.Text && Int32.Parse(tVes) >= Convert.ToInt32(textBox1.Text))
+            if (lastRow.Split(";")[0] == comboBox2.Text && Int32.Parse(tVes) >= Convert.ToInt32(textBox1.Text) || comboBox2.Text == "*")
             {
                 if (ttmp != lastRow)
                 {
