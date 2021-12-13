@@ -1,6 +1,5 @@
-
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.Media;
 
 namespace clFish
 {
@@ -15,7 +14,7 @@ namespace clFish
         string path = @"log.txt";
         int wgFish = 0;
         string tVes = string.Empty;
-        List<string> listTarget = new List<string>(new[] { "0" });
+        List<string> listTmp = new List<string>(new[] {""});
 
 
 
@@ -159,8 +158,15 @@ namespace clFish
 
             if (checkBox2.Checked)
             {
-                var lastRow = listBox1.Items[^1].ToString();
-                bliznec(lastRow);
+                try
+                {
+
+                    var lastRow = listBox1.Items[^1].ToString();
+                    bliznec(lastRow);
+                }
+                catch 
+                {
+                }
                 button4_Click(null, null);
             }
             else
@@ -201,38 +207,32 @@ namespace clFish
             //txtLog.Text = tVes;
             
         }
-
+        SoundPlayer sp = new SoundPlayer(Properties.Resources.bonus);
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
-
-            void addlT(string it)
+            //Looking for twins
+            if (listBox2.Items.Count > 0 && listBox3.Items.Count > 0)
             {
-
-                var finds = listTarget.Find(x => x == it);
-
-                if (finds != default(String))
+                foreach (string it in listBox2.Items)
                 {
-                    lstTargets.ForeColor = Color.Red;
-                    lstTargets.Items.Add(it);
-                    lstTargets.TopIndex = lstTargets.Items.Count - 1;
-                    listTarget.Add(it);
-                }
-            }
-                   
+                    int index = listBox3.FindString(it);
+                    if (index != -1)
+                    {
 
-            
-            foreach(string it in listBox2.Items)
-            {
-
-                int index = listBox3.FindString(it);
-                if (index != -1)
-                {
-                    addlT(it);
+                        int x = lstTargets.FindString(it);
+                        if (x != -1)
+                        {
+                        }
+                        else
+                        {
+                            sp.Play();
+                            lstTargets.Items.Add(it);
+                            lstTargets.TopIndex = lstTargets.Items.Count - 1;
+                        }
+                    }
                 }
-                else
-                {                 
-                }               
             }
         }
 

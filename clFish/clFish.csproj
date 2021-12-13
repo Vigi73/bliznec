@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="bin\Debug\net6.0-windows\midi\bonus.wav" />
     <Content Include="catfishicon_97049.ico" />
   </ItemGroup>
 

@@ -260,7 +260,7 @@
             // lstTargets
             // 
             this.lstTargets.BackColor = System.Drawing.SystemColors.InfoText;
-            this.lstTargets.ForeColor = System.Drawing.SystemColors.Window;
+            this.lstTargets.ForeColor = System.Drawing.Color.OrangeRed;
             this.lstTargets.FormattingEnabled = true;
             this.lstTargets.ItemHeight = 17;
             this.lstTargets.Location = new System.Drawing.Point(226, 207);
