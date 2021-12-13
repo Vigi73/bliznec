@@ -50,8 +50,9 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lstTargets = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.txtLog = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
@@ -228,8 +229,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.lstTargets);
             this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.txtLog);
             this.tabPage1.Controls.Add(this.checkBox2);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.listBox3);
@@ -246,29 +248,41 @@
             this.tabPage1.Text = "Близнецы";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(88, 237);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 17);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Найдены совпадения:";
+            // 
+            // lstTargets
+            // 
+            this.lstTargets.BackColor = System.Drawing.SystemColors.InfoText;
+            this.lstTargets.ForeColor = System.Drawing.SystemColors.Window;
+            this.lstTargets.FormattingEnabled = true;
+            this.lstTargets.ItemHeight = 17;
+            this.lstTargets.Location = new System.Drawing.Point(226, 207);
+            this.lstTargets.Name = "lstTargets";
+            this.lstTargets.Size = new System.Drawing.Size(220, 89);
+            this.lstTargets.TabIndex = 14;
+            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(114, 212);
+            this.button4.Location = new System.Drawing.Point(6, 212);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(106, 31);
+            this.button4.Size = new System.Drawing.Size(47, 31);
             this.button4.TabIndex = 13;
             this.button4.Text = "Найти";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // txtLog
-            // 
-            this.txtLog.Location = new System.Drawing.Point(230, 214);
-            this.txtLog.Multiline = true;
-            this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(216, 63);
-            this.txtLog.TabIndex = 12;
-            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(12, 254);
+            this.checkBox2.Location = new System.Drawing.Point(343, 3);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(104, 21);
             this.checkBox2.TabIndex = 11;
@@ -2738,7 +2752,8 @@
         private TabPage tabPage2;
         private TextBox textBox1;
         private CheckBox checkBox2;
-        private TextBox txtLog;
         private Button button4;
+        private ListBox lstTargets;
+        private Label label3;
     }
 }

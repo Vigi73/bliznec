@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace clFish
@@ -14,6 +15,8 @@ namespace clFish
         string path = @"log.txt";
         int wgFish = 0;
         string tVes = string.Empty;
+        List<string> listTarget = new List<string>(new[] { "0" });
+
 
 
         public Form1()
@@ -172,7 +175,7 @@ namespace clFish
 
         string ttmp = string.Empty;
 
-
+        
         private void getRealFish(string v)
         {
             if (v.Contains('.'))
@@ -199,16 +202,33 @@ namespace clFish
             
         }
 
+
         private void button4_Click(object sender, EventArgs e)
         {
+
+            void addlT(string it)
+            {
+
+                var finds = listTarget.Find(x => x == it);
+
+                if (finds != default(String))
+                {
+                    lstTargets.ForeColor = Color.Red;
+                    lstTargets.Items.Add(it);
+                    lstTargets.TopIndex = lstTargets.Items.Count - 1;
+                    listTarget.Add(it);
+                }
+            }
+                   
+
+            
             foreach(string it in listBox2.Items)
             {
 
                 int index = listBox3.FindString(it);
                 if (index != -1)
                 {
-                    txtLog.ForeColor = Color.Red;
-                    txtLog.Text = $"{it}";
+                    addlT(it);
                 }
                 else
                 {                 
