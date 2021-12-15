@@ -62,11 +62,15 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.chFox = new System.Windows.Forms.CheckBox();
+            this.listBox4 = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -2684,13 +2688,46 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listBox4);
+            this.tabPage2.Controls.Add(this.chFox);
+            this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(452, 285);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "------";
+            this.tabPage2.Text = "Охота на лис";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(367, 15);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(79, 35);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // chFox
+            // 
+            this.chFox.AutoSize = true;
+            this.chFox.Location = new System.Drawing.Point(35, 23);
+            this.chFox.Name = "chFox";
+            this.chFox.Size = new System.Drawing.Size(131, 21);
+            this.chFox.TabIndex = 2;
+            this.chFox.Text = "Начать поиск лис";
+            this.chFox.UseVisualStyleBackColor = true;
+            // 
+            // listBox4
+            // 
+            this.listBox4.BackColor = System.Drawing.SystemColors.InfoText;
+            this.listBox4.ForeColor = System.Drawing.SystemColors.Info;
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 17;
+            this.listBox4.Location = new System.Drawing.Point(15, 116);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(420, 123);
+            this.listBox4.TabIndex = 3;
             // 
             // Form1
             // 
@@ -2722,6 +2759,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2761,5 +2800,8 @@
         private Button button4;
         private ListBox lstTargets;
         private PictureBox pictureBox1;
+        private Button button5;
+        private CheckBox chFox;
+        private ListBox listBox4;
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Media;
 
@@ -177,11 +178,23 @@ namespace clFish
                 }
                 button4_Click(null, null);
             }
-            else
+
+            // Если поиск Охота на лис
+            if (chFox.Checked)
             {
-                /*listBox2.Items.Clear();
-                listBox3.Items.Clear();*/
+                try
+                {
+
+                    var lastRowForFox = listBox1.Items[^1].ToString();
+                    fox(lastRowForFox);
+                }
+                catch
+                {
+                }
+
             }
+            
+
 
             
 
@@ -273,6 +286,12 @@ namespace clFish
                     listBox3.TopIndex = listBox3.Items.Count - 1;
                 }                
             }
+        }
+
+        //Функция работы охота на лис
+        private void fox(string? lastRow)
+        {
+
         }
 
      
