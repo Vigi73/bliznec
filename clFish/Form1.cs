@@ -451,12 +451,33 @@ namespace clFish
                         resultFish = listFox[0];
                         break;
                     case "<>":
-                                               
-                        resultFish = GetNearFish(listFox);
-                        break;
+
+                    resultFish = GetNearFish(listFox);
+                    break;
                 }
+
                 txtB.Text = resultFish.ToString();
-                lblProc.Text = GetProc(double.Parse(txtB.Text), double.Parse(txtTarget.Text)).ToString() + "%";
+                //lblProc.Text = txtB.Text.ToString();
+                
+                try
+                {
+                    var rF = double.Parse(txtB.Text);
+                    var rT = double.Parse(txtWeigh.Text);
+
+                    if (txtB.Text != String.Empty)
+                    {
+                        if (rF > rT)
+                        {
+                            lblProc.Text = Math.Round(rT / rF * 100, 2).ToString() + "%";
+                        }
+                        else
+                        {                            
+                            lblProc.Text = Math.Round(rF / rT * 100, 2).ToString() + "%";
+                        }
+                    }
+                }
+                catch { }
+
             }
         }
 
@@ -466,23 +487,14 @@ namespace clFish
             int tmp = int.MaxValue;
             foreach (int elm in listFox)
             {
-                if (Math.Abs(int.Parse(txtTarget.Text) - elm) < tmp)
+                if (Math.Abs(int.Parse(txtWeigh.Text) - elm) < tmp)
                 {
                     tmp = elm;
                 }
             }
             return tmp;           
         }
-        // Получаем процент
-        private double GetProc(double v1, double v2)
-        {
-            if (v1 > v2)
-                return Math.Round(v2 / v1 * 100, 2);
-            else
-                return Math.Round(v1 / v2 * 100, 2);
-                
-        }
-
+        
         //================================ if fish =======================================
 
         private void fox_fish(string? lastRow)
@@ -549,7 +561,7 @@ namespace clFish
                         break;
 
                     case "<>":
-                        if  (cbFishfox.Text == currentFishName)
+                        if (cbFishfox.Text == currentFishName)
                         {
                             if (realF == Int32.Parse(txtWeigh.Text))
                             {

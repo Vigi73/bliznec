@@ -63,6 +63,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblProc = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.chFox = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tmrFox = new System.Windows.Forms.Timer(this.components);
-            this.lblProc = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -2730,10 +2730,21 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Охота на лис";
             // 
+            // lblProc
+            // 
+            this.lblProc.AutoSize = true;
+            this.lblProc.Font = new System.Drawing.Font("Hack", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProc.Location = new System.Drawing.Point(235, 251);
+            this.lblProc.Name = "lblProc";
+            this.lblProc.Size = new System.Drawing.Size(19, 19);
+            this.lblProc.TabIndex = 13;
+            this.lblProc.Text = "%";
+            this.lblProc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(123, 137);
+            this.label4.Location = new System.Drawing.Point(123, 228);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 17);
             this.label4.TabIndex = 12;
@@ -2743,7 +2754,7 @@
             // 
             this.txtB.BackColor = System.Drawing.SystemColors.InfoText;
             this.txtB.ForeColor = System.Drawing.Color.Chartreuse;
-            this.txtB.Location = new System.Drawing.Point(120, 157);
+            this.txtB.Location = new System.Drawing.Point(120, 248);
             this.txtB.Name = "txtB";
             this.txtB.Size = new System.Drawing.Size(97, 25);
             this.txtB.TabIndex = 11;
@@ -2780,9 +2791,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(252, 85);
+            this.pictureBox2.Location = new System.Drawing.Point(291, 120);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(180, 172);
+            this.pictureBox2.Size = new System.Drawing.Size(119, 115);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -4017,17 +4028,6 @@
             this.tmrFox.Enabled = true;
             this.tmrFox.Interval = 1000;
             this.tmrFox.Tick += new System.EventHandler(this.tmrFox_Tick);
-            // 
-            // lblProc
-            // 
-            this.lblProc.AutoSize = true;
-            this.lblProc.Font = new System.Drawing.Font("Hack", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblProc.Location = new System.Drawing.Point(162, 211);
-            this.lblProc.Name = "lblProc";
-            this.lblProc.Size = new System.Drawing.Size(21, 22);
-            this.lblProc.TabIndex = 13;
-            this.lblProc.Text = "%";
-            this.lblProc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
