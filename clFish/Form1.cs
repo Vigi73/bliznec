@@ -20,6 +20,7 @@ namespace clFish
         List<string> listTmp = new List<string>(new[] {""});
         List<int> listFox = new List<int>{};
         int tmpFox = int.MaxValue;
+        int ffff = 0;
 
 
 
@@ -494,19 +495,21 @@ namespace clFish
 
                     if (ideal - elm < tmpFox)
                     {
-                        tmpFox = elm;
+                        tmpFox = ideal - elm;
+                        ffff = elm;
                     }
                 }
                 else
                 {
                     if (elm - ideal < tmpFox)
                     {
-                        tmpFox = elm;
+                        tmpFox = elm -ideal;
+                        ffff = elm;
                     }
                 }
 
             }
-            return tmpFox;           
+            return ffff;           
         }
         
         //================================ if fish =======================================

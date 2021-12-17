@@ -2734,11 +2734,11 @@
             // 
             this.lblProc.AutoSize = true;
             this.lblProc.Font = new System.Drawing.Font("Hack", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblProc.Location = new System.Drawing.Point(235, 251);
+            this.lblProc.Location = new System.Drawing.Point(142, 176);
             this.lblProc.Name = "lblProc";
-            this.lblProc.Size = new System.Drawing.Size(19, 19);
+            this.lblProc.Size = new System.Drawing.Size(69, 19);
             this.lblProc.TabIndex = 13;
-            this.lblProc.Text = "%";
+            this.lblProc.Text = "00.00%";
             this.lblProc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -2791,9 +2791,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(291, 120);
+            this.pictureBox2.Location = new System.Drawing.Point(261, 100);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(119, 115);
+            this.pictureBox2.Size = new System.Drawing.Size(151, 153);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
