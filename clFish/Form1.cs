@@ -19,6 +19,7 @@ namespace clFish
         string tVes = string.Empty;
         List<string> listTmp = new List<string>(new[] {""});
         List<int> listFox = new List<int>{};
+        int tmpFox = int.MaxValue;
 
 
 
@@ -484,15 +485,28 @@ namespace clFish
         // Получаем лучший рез к идеалу
         private int GetNearFish(List<int> listFox)
         {
-            int tmp = int.MaxValue;
+            int ideal = int.Parse(txtWeigh.Text);
+
             foreach (int elm in listFox)
             {
-                if (Math.Abs(int.Parse(txtWeigh.Text) - elm) < tmp)
+                if (elm < ideal)
                 {
-                    tmp = elm;
+
+                    if (ideal - elm < tmpFox)
+                    {
+                        tmpFox = elm;
+                    }
                 }
+                else
+                {
+                    if (elm - ideal < tmpFox)
+                    {
+                        tmpFox = elm;
+                    }
+                }
+
             }
-            return tmp;           
+            return tmpFox;           
         }
         
         //================================ if fish =======================================
