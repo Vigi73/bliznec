@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Media;
 
+
+
 namespace clFish
 {
     public partial class Form1 : Form
@@ -16,6 +18,8 @@ namespace clFish
         int wgFish = 0;
         string tVes = string.Empty;
         List<string> listTmp = new List<string>(new[] {""});
+        List<int> listFox = new List<int>{};
+
 
 
 
@@ -180,24 +184,7 @@ namespace clFish
             }
 
             // Если поиск Охота на лис
-            if (chFox.Checked)
-            {
-                try
-                {
-
-                    var lastRowForFox = listBox1.Items[^1].ToString();
-                    fox(lastRowForFox);
-                }
-                catch
-                {
-                }
-
-            }
             
-
-
-            
-
         }
 
         string ttmp = string.Empty;
@@ -228,7 +215,7 @@ namespace clFish
             //txtLog.Text = tVes;
             
         }
-        SoundPlayer sp = new SoundPlayer(Properties.Resources.bonus);
+        public SoundPlayer sp = new SoundPlayer(Properties.Resources.bonus);
         
 
         private void button4_Click(object sender, EventArgs e)
@@ -288,12 +275,300 @@ namespace clFish
             }
         }
 
-        //Функция работы охота на лис
-        private void fox(string? lastRow)
+        private void t4ПускToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Process.Start("yrt.exe");
+        }
+               
+        private void tmrFox_Tick(object sender, EventArgs e)
+        {
+            if (chFox.Checked)
+            {
+                try
+                {
 
+                    var lastRowForFox = listBox1.Items[^1].ToString();
+
+                    if (checkBox3.Checked) // если с учетом рыбы
+                        fox_fish(lastRowForFox);
+                    else
+                        fox(lastRowForFox);
+                }
+                catch
+                {
+                }
+
+                button5_Click(null, null);
+            }
         }
 
-     
+        //Функция работы охота на лис
+
+        public int GetFish(string weigh)
+        {
+            if (weigh.Contains('.'))
+            {
+                switch (weigh.Split(".")[1].Length)
+                {
+                    case 3:
+                        tVes = weigh.Replace(".", "");
+                        break;
+                    case 2:
+                        tVes = weigh.Replace(".", "") + "0";
+                        break;
+                    case 1:
+                        tVes = weigh.Replace(".", "") + "00";
+                        break;
+                }
+            }
+            else
+            {
+                tVes = weigh;
+            }
+
+            int realWeigh = default(int);
+            try
+            {
+                realWeigh = Int32.Parse(tVes);
+            }
+            catch
+            {
+            }
+
+            return realWeigh;
+        }
+// ===================================================================================================================
+
+        string fishTMP = string.Empty;
+
+        private void fox(string? lastRow)
+        {
+            string currentFish = lastRow.Split(';')[1];
+            if (currentFish != fishTMP)
+            {
+                               
+
+                int realF = GetFish(currentFish);
+
+                switch (cbСonditions.Text)
+                {
+                    case "=":
+                        if (realF == Int32.Parse(txtWeigh.Text))
+                        {
+                            sp.Play();
+                            txtTarget.Text = currentFish;
+                        }
+                        else
+                        {
+                        }
+                        break;
+
+                    case ">=":
+                        if (realF >= Int32.Parse(txtWeigh.Text))
+                        {
+                            if (realF == Int32.Parse(txtWeigh.Text))
+                            {
+                                sp.Play();
+                                txtTarget.Text = currentFish;
+                            }
+                            else
+                            {
+
+                                listBox4.Items.Add(currentFish);
+                                listBox4.TopIndex = listBox4.Items.Count - 1;
+                            }
+                        }
+                        else
+                        {
+                        }
+                        break;
+
+                    case "<=":
+                        if (realF <= Int32.Parse(txtWeigh.Text))
+                        {
+                            if (realF == Int32.Parse(txtWeigh.Text))
+                            {
+                                sp.Play();
+                                txtTarget.Text = currentFish;
+                            }
+                            else
+                            {
+                                listBox4.Items.Add(currentFish);
+                                listBox4.TopIndex = listBox4.Items.Count - 1;
+                            }
+                        }
+                        else
+                        {
+                        }
+                        break;
+
+                    case "<>":
+                        if (realF == Int32.Parse(txtWeigh.Text))
+                        {
+                            sp.Play();
+                            txtTarget.Text = currentFish;
+                        }
+                        else
+                        {
+                            listBox4.Items.Add(currentFish);
+                            listBox4.TopIndex = listBox4.Items.Count - 1;
+                        }
+                        break;
+                }
+                
+                //listBox4.Items.Add(currentFish);
+                fishTMP = currentFish;
+
+
+            }
+        }
+
+        
+        // Проверка результатов в списке соответствия рыб
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var resultFish = default(int);
+
+            if (listBox4.Items.Count > 0)
+            {
+                foreach (string elm in listBox4.Items)
+                {
+                    listFox.Add(GetFish(elm));
+                }
+
+                listFox.Sort();
+
+                switch (cbСonditions.Text)
+                {
+                    case "=":
+                        break;
+
+                    case "<=":
+                        resultFish = listFox.Last();
+                        
+                        break;
+                    case ">=":
+                        resultFish = listFox[0];
+                        break;
+                    case "<>":
+                                               
+                        resultFish = GetNearFish(listFox);
+                        break;
+                }
+                txtB.Text = resultFish.ToString();
+                lblProc.Text = GetProc(double.Parse(txtB.Text), double.Parse(txtTarget.Text)).ToString() + "%";
+            }
+        }
+
+        // Получаем лучший рез к идеалу
+        private int GetNearFish(List<int> listFox)
+        {
+            int tmp = int.MaxValue;
+            foreach (int elm in listFox)
+            {
+                if (Math.Abs(int.Parse(txtTarget.Text) - elm) < tmp)
+                {
+                    tmp = elm;
+                }
+            }
+            return tmp;           
+        }
+        // Получаем процент
+        private double GetProc(double v1, double v2)
+        {
+            if (v1 > v2)
+                return Math.Round(v2 / v1 * 100, 2);
+            else
+                return Math.Round(v1 / v2 * 100, 2);
+                
+        }
+
+        //================================ if fish =======================================
+
+        private void fox_fish(string? lastRow)
+        {
+            string currentFish = lastRow.Split(';')[1];
+            string currentFishName = lastRow.Split(';')[0];
+
+            if (currentFish != fishTMP)
+            {
+
+
+                int realF = GetFish(currentFish);
+
+                switch (cbСonditions.Text)
+                {
+                    case "=":
+                        if (realF == Int32.Parse(txtWeigh.Text) && cbFishfox.Text == currentFishName) 
+                        {
+                            sp.Play();
+                            txtTarget.Text = currentFish;
+                        }
+                        else
+                        {
+                        }
+                        break;
+
+                    case ">=":
+                        if (realF >= Int32.Parse(txtWeigh.Text) && cbFishfox.Text == currentFishName)
+                        {
+                            if (realF == Int32.Parse(txtWeigh.Text))
+                            {
+                                sp.Play();
+                                txtTarget.Text = currentFish;
+                            }
+                            else
+                            {
+
+                                listBox4.Items.Add(currentFish);
+                                listBox4.TopIndex = listBox4.Items.Count - 1;
+                            }
+                        }
+                        else
+                        {
+                        }
+                        break;
+
+                    case "<=":
+                        if (realF <= Int32.Parse(txtWeigh.Text) && cbFishfox.Text == currentFishName)
+                        {
+                            if (realF == Int32.Parse(txtWeigh.Text))
+                            {
+                                sp.Play();
+                                txtTarget.Text = currentFish;
+                            }
+                            else
+                            {
+                                listBox4.Items.Add(currentFish);
+                                listBox4.TopIndex = listBox4.Items.Count - 1;
+                            }
+                        }
+                        else
+                        {
+                        }
+                        break;
+
+                    case "<>":
+                        if  (cbFishfox.Text == currentFishName)
+                        {
+                            if (realF == Int32.Parse(txtWeigh.Text))
+                            {
+                                sp.Play();
+                                txtTarget.Text = currentFish;
+                            }
+                            else
+                            {
+                                listBox4.Items.Add(currentFish);
+                                listBox4.TopIndex = listBox4.Items.Count - 1;
+                            }
+                        }
+                        else
+                        {
+                        }
+                        break;
+                }
+                fishTMP = currentFish;
+            }
+        }
     }
 }
