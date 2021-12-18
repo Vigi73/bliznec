@@ -77,6 +77,9 @@
             this.chFox = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tmrFox = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -2710,6 +2713,9 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LemonChiffon;
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.lblProc);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.txtB);
@@ -2733,10 +2739,11 @@
             // lblProc
             // 
             this.lblProc.AutoSize = true;
-            this.lblProc.Font = new System.Drawing.Font("Hack", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblProc.Location = new System.Drawing.Point(142, 176);
+            this.lblProc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblProc.Font = new System.Drawing.Font("Stencil", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProc.Location = new System.Drawing.Point(137, 164);
             this.lblProc.Name = "lblProc";
-            this.lblProc.Size = new System.Drawing.Size(69, 19);
+            this.lblProc.Size = new System.Drawing.Size(107, 32);
             this.lblProc.TabIndex = 13;
             this.lblProc.Text = "00.00%";
             this.lblProc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4016,7 +4023,7 @@
             // 
             this.button5.Location = new System.Drawing.Point(6, 6);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(47, 35);
+            this.button5.Size = new System.Drawing.Size(47, 18);
             this.button5.TabIndex = 1;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
@@ -4028,6 +4035,33 @@
             this.tmrFox.Enabled = true;
             this.tmrFox.Interval = 1000;
             this.tmrFox.Tick += new System.EventHandler(this.tmrFox_Tick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Рыба:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(230, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 17);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Вес:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(325, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(105, 17);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Условие поиска:";
             // 
             // Form1
             // 
@@ -4050,7 +4084,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClFIsh 1.0.5";
+            this.Text = "ClFIsh 1.0.6";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -4116,5 +4150,8 @@
         private TextBox txtB;
         private Label label3;
         private Label lblProc;
+        private Label label7;
+        private Label label6;
+        private Label label5;
     }
 }
