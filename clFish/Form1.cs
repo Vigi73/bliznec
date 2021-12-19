@@ -511,7 +511,77 @@ namespace clFish
             }
             return ffff;           
         }
-        
+
+        // Добавляем рыбу для задания
+        private void button7_Click(object sender, EventArgs e)
+        {
+            lbFishE.Items.Add(comboBox3.Text);
+        }
+        // Удаляем выбронную рыбу из задания
+        private void button8_Click(object sender, EventArgs e)
+        {
+            lbFishE.Items.Remove(lbFishE.SelectedItem);
+        }
+
+        // Заполнить задание основная кнопка
+        private void button6_Click(object sender, EventArgs e)
+        {
+            int otE = int.Parse(txtOtEveret.Text);
+            int doE = int.Parse(txtDoEverest.Text);
+            int stepE = int.Parse(txtStepEverest.Text);   
+
+            
+            //заполняем таблицу
+            dgEverest.Rows.Clear();
+            for (var i = otE; i < doE; i+= stepE)
+            {
+               // int FishRez = currFishRez(i, currentTrunk);  
+
+               dgEverest.Rows.Add(i.ToString());
+            }
+        }
+
+
+
+
+        private void dgEverest_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            dgEverest.Rows[e.RowIndex].HeaderCell.Value =
+       (e.RowIndex + 1).ToString();
+        }
+
+
+
+        // Таймер эвереста
+        private void tmEverest_Tick(object sender, EventArgs e)
+        {
+            if (chEverest.Checked)
+            {
+                string lastRowForFox = listBox1.Items[^1].ToString();
+                int currVes = GetFish(lastRowForFox.Split(";")[1]);
+                string currFIshName = lastRowForFox.Split(';')[0];
+                int index = lbFishE.FindString(currFIshName);
+                
+
+
+                // если рыба соответствует условию задания то дабавляем ее в основной список рыб
+                try
+                {
+                    if (currVes >= int.Parse(txtOtEveret.Text) && currVes <= int.Parse(txtDoEverest.Text) && index != -1)
+                    {
+                        if (listBox5.FindString(currVes.ToString()) == -1)
+                            listBox5.Items.Add(currVes.ToString());
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Не введены все данные");
+                }
+            }
+        }
+
+
+
         //================================ if fish =======================================
 
         private void fox_fish(string? lastRow)
