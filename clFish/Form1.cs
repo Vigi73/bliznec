@@ -28,6 +28,14 @@ namespace clFish
         public Form1()
         {
             InitializeComponent();
+
+            dgEverest.AllowUserToAddRows = false;
+
+            dgEverest.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+
+            for (int i = 0; i < dgEverest.Columns.Count; i++)
+                dgEverest.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             button2.Visible = false;
             if (!fl)
             {
@@ -528,16 +536,19 @@ namespace clFish
         {
             int otE = int.Parse(txtOtEveret.Text);
             int doE = int.Parse(txtDoEverest.Text);
-            int stepE = int.Parse(txtStepEverest.Text);   
+            int stepE = int.Parse(txtStepEverest.Text);
+            int maxV = int.MaxValue;
 
             
-            //заполняем таблицу
+
+
+            //заполняем таблицу первый раз
             dgEverest.Rows.Clear();
             for (var i = otE; i < doE; i+= stepE)
             {
                // int FishRez = currFishRez(i, currentTrunk);  
 
-               dgEverest.Rows.Add(i.ToString());
+               dgEverest.Rows.Add(i.ToString(), (i + stepE).ToString(), $"{maxV}", $"{0.0}%");
             }
         }
 
@@ -557,6 +568,7 @@ namespace clFish
         {
             if (chEverest.Checked)
             {
+                
                 string lastRowForFox = listBox1.Items[^1].ToString();
                 int currVes = GetFish(lastRowForFox.Split(";")[1]);
                 string currFIshName = lastRowForFox.Split(';')[0];
@@ -570,14 +582,56 @@ namespace clFish
                     if (currVes >= int.Parse(txtOtEveret.Text) && currVes <= int.Parse(txtDoEverest.Text) && index != -1)
                     {
                         if (listBox5.FindString(currVes.ToString()) == -1)
+                        {
                             listBox5.Items.Add(currVes.ToString());
+                            listBox5.TopIndex = listBox5.Items.Count - 1;
+                        }
                     }
                 }
                 catch
                 {
                     MessageBox.Show("Не введены все данные");
                 }
+                button9_Click(null, null);
+
             }
+        }
+        // Вставляем выловленный рез в таблицу
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (listBox5.Items.Count > 0)
+            {
+                foreach (string rowRez in listBox5.Items)
+                {
+
+                    int rez = Int32.Parse(rowRez);
+
+
+                        foreach (DataGridViewRow row in dgEverest.Rows)
+                    {
+                        try
+                        {
+                            if (rez >= Int32.Parse((string)row.Cells[0].Value) &&
+                                rez < Int32.Parse((string)row.Cells[1].Value) &&
+                                rez < Int32.Parse((string)row.Cells[2].Value))
+                            {
+                                dgEverest.ClearSelection();
+                                row.Cells[2].Value = $"{rez}";
+                                row.Cells[3].Value = Math.Round(float.Parse((string)row.Cells[0].Value) / rez * 100, 2).ToString() + "%";
+                                row.Selected = true;
+                                int rowIndex = dgEverest.CurrentRow.Index;
+                                dgEverest.FirstDisplayedScrollingRowIndex = rowIndex;
+
+                            }
+
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }
+            }
+
         }
 
 

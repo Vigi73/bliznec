@@ -80,6 +80,9 @@
             this.chFox = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.chEverest = new System.Windows.Forms.CheckBox();
             this.listBox5 = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -87,6 +90,7 @@
             this.lbFishE = new System.Windows.Forms.ListBox();
             this.dgEverest = new System.Windows.Forms.DataGridView();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Blizko = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.procent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button6 = new System.Windows.Forms.Button();
@@ -97,7 +101,6 @@
             this.txtDoEverest = new System.Windows.Forms.TextBox();
             this.txtOtEveret = new System.Windows.Forms.TextBox();
             this.tmrFox = new System.Windows.Forms.Timer(this.components);
-            this.chEverest = new System.Windows.Forms.CheckBox();
             this.tmEverest = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -4082,6 +4085,8 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.LemonChiffon;
+            this.tabPage3.Controls.Add(this.button9);
+            this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.chEverest);
             this.tabPage3.Controls.Add(this.listBox5);
             this.tabPage3.Controls.Add(this.button8);
@@ -4103,18 +4108,50 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Эверест";
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(326, 97);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(28, 22);
+            this.button9.TabIndex = 15;
+            this.button9.Text = "^";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Visible = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(321, 43);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(121, 17);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Рыбы для задания:";
+            // 
+            // chEverest
+            // 
+            this.chEverest.AutoSize = true;
+            this.chEverest.Location = new System.Drawing.Point(369, 9);
+            this.chEverest.Name = "chEverest";
+            this.chEverest.Size = new System.Drawing.Size(75, 21);
+            this.chEverest.TabIndex = 13;
+            this.chEverest.Text = "Следить";
+            this.chEverest.UseVisualStyleBackColor = true;
+            // 
             // listBox5
             // 
+            this.listBox5.BackColor = System.Drawing.SystemColors.InfoText;
+            this.listBox5.ForeColor = System.Drawing.Color.Chartreuse;
             this.listBox5.FormattingEnabled = true;
             this.listBox5.ItemHeight = 17;
-            this.listBox5.Location = new System.Drawing.Point(295, 226);
+            this.listBox5.Location = new System.Drawing.Point(321, 209);
             this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(150, 55);
+            this.listBox5.Size = new System.Drawing.Size(124, 72);
             this.listBox5.TabIndex = 12;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(334, 94);
+            this.button8.Location = new System.Drawing.Point(411, 93);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(33, 31);
             this.button8.TabIndex = 11;
@@ -4124,7 +4161,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(295, 94);
+            this.button7.Location = new System.Drawing.Point(378, 93);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(33, 30);
             this.button7.TabIndex = 10;
@@ -5297,9 +5334,9 @@
             "Эферия эллиптическая ",
             "Яго Гаррика ",
             "Японский краб-стригун "});
-            this.comboBox3.Location = new System.Drawing.Point(295, 63);
+            this.comboBox3.Location = new System.Drawing.Point(321, 63);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(150, 25);
+            this.comboBox3.Size = new System.Drawing.Size(124, 25);
             this.comboBox3.TabIndex = 9;
             // 
             // lbFishE
@@ -5308,9 +5345,9 @@
             this.lbFishE.ForeColor = System.Drawing.SystemColors.Info;
             this.lbFishE.FormattingEnabled = true;
             this.lbFishE.ItemHeight = 17;
-            this.lbFishE.Location = new System.Drawing.Point(295, 131);
+            this.lbFishE.Location = new System.Drawing.Point(321, 131);
             this.lbFishE.Name = "lbFishE";
-            this.lbFishE.Size = new System.Drawing.Size(150, 89);
+            this.lbFishE.Size = new System.Drawing.Size(124, 72);
             this.lbFishE.TabIndex = 8;
             // 
             // dgEverest
@@ -5319,39 +5356,46 @@
             this.dgEverest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEverest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.weight,
+            this.doE,
             this.Blizko,
             this.procent});
             this.dgEverest.Location = new System.Drawing.Point(7, 61);
             this.dgEverest.Name = "dgEverest";
             this.dgEverest.RowTemplate.Height = 27;
-            this.dgEverest.Size = new System.Drawing.Size(272, 221);
+            this.dgEverest.Size = new System.Drawing.Size(308, 221);
             this.dgEverest.TabIndex = 7;
             this.dgEverest.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgEverest_RowsAdded);
             // 
             // weight
             // 
-            this.weight.HeaderText = "Вес";
+            this.weight.HeaderText = "от";
             this.weight.Name = "weight";
             this.weight.Width = 60;
             // 
+            // doE
+            // 
+            this.doE.HeaderText = "до";
+            this.doE.Name = "doE";
+            this.doE.Width = 60;
+            // 
             // Blizko
             // 
-            this.Blizko.HeaderText = "Лучший вес";
+            this.Blizko.HeaderText = "Ваш";
             this.Blizko.Name = "Blizko";
-            this.Blizko.Width = 120;
+            this.Blizko.Width = 60;
             // 
             // procent
             // 
             this.procent.HeaderText = "%";
             this.procent.Name = "procent";
             this.procent.ReadOnly = true;
-            this.procent.Width = 40;
+            this.procent.Width = 55;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(294, 21);
+            this.button6.Location = new System.Drawing.Point(247, 34);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(63, 41);
+            this.button6.Size = new System.Drawing.Size(67, 23);
             this.button6.TabIndex = 6;
             this.button6.Text = "Расчет";
             this.button6.UseVisualStyleBackColor = true;
@@ -5360,7 +5404,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(200, 13);
+            this.label10.Location = new System.Drawing.Point(175, 17);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 17);
             this.label10.TabIndex = 5;
@@ -5369,7 +5413,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(107, 11);
+            this.label9.Location = new System.Drawing.Point(88, 15);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(26, 17);
             this.label9.TabIndex = 4;
@@ -5378,7 +5422,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 12);
+            this.label8.Location = new System.Drawing.Point(16, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(24, 17);
             this.label8.TabIndex = 3;
@@ -5386,7 +5430,7 @@
             // 
             // txtStepEverest
             // 
-            this.txtStepEverest.Location = new System.Drawing.Point(195, 30);
+            this.txtStepEverest.Location = new System.Drawing.Point(173, 34);
             this.txtStepEverest.Name = "txtStepEverest";
             this.txtStepEverest.Size = new System.Drawing.Size(68, 25);
             this.txtStepEverest.TabIndex = 2;
@@ -5394,7 +5438,7 @@
             // 
             // txtDoEverest
             // 
-            this.txtDoEverest.Location = new System.Drawing.Point(102, 30);
+            this.txtDoEverest.Location = new System.Drawing.Point(85, 34);
             this.txtDoEverest.Name = "txtDoEverest";
             this.txtDoEverest.Size = new System.Drawing.Size(87, 25);
             this.txtDoEverest.TabIndex = 1;
@@ -5402,7 +5446,7 @@
             // 
             // txtOtEveret
             // 
-            this.txtOtEveret.Location = new System.Drawing.Point(21, 30);
+            this.txtOtEveret.Location = new System.Drawing.Point(9, 34);
             this.txtOtEveret.Name = "txtOtEveret";
             this.txtOtEveret.Size = new System.Drawing.Size(75, 25);
             this.txtOtEveret.TabIndex = 0;
@@ -5413,16 +5457,6 @@
             this.tmrFox.Enabled = true;
             this.tmrFox.Interval = 1000;
             this.tmrFox.Tick += new System.EventHandler(this.tmrFox_Tick);
-            // 
-            // chEverest
-            // 
-            this.chEverest.AutoSize = true;
-            this.chEverest.Location = new System.Drawing.Point(369, 9);
-            this.chEverest.Name = "chEverest";
-            this.chEverest.Size = new System.Drawing.Size(75, 21);
-            this.chEverest.TabIndex = 13;
-            this.chEverest.Text = "Следить";
-            this.chEverest.UseVisualStyleBackColor = true;
             // 
             // tmEverest
             // 
@@ -5534,13 +5568,16 @@
         private Button button6;
         private ComboBox comboBox3;
         private ListBox lbFishE;
-        private DataGridViewTextBoxColumn weight;
-        private DataGridViewTextBoxColumn Blizko;
-        private DataGridViewTextBoxColumn procent;
         private Button button7;
         private Button button8;
         private ListBox listBox5;
         private CheckBox chEverest;
         private System.Windows.Forms.Timer tmEverest;
+        private Label label11;
+        private Button button9;
+        private DataGridViewTextBoxColumn weight;
+        private DataGridViewTextBoxColumn doE;
+        private DataGridViewTextBoxColumn Blizko;
+        private DataGridViewTextBoxColumn procent;
     }
 }
