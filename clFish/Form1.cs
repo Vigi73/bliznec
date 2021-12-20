@@ -619,8 +619,7 @@ namespace clFish
                                 row.Cells[2].Value = $"{rez}";
                                 row.Cells[3].Value = Math.Round(float.Parse((string)row.Cells[0].Value) / rez * 100, 2).ToString() + "%";
                                 row.Selected = true;
-                                int rowIndex = dgEverest.CurrentRow.Index;
-                                dgEverest.FirstDisplayedScrollingRowIndex = rowIndex;
+                                dgEverest.FirstDisplayedScrollingRowIndex = row.Index;
 
                             }
 
