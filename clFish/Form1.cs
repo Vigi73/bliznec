@@ -599,7 +599,16 @@ namespace clFish
         // Вставляем выловленный рез в таблицу
         private void button9_Click(object sender, EventArgs e)
         {
-            if (listBox5.Items.Count > 0)
+            float sum = 0f;
+
+            foreach (DataGridViewRow row in dgEverest.Rows)
+            {
+                sum += float.Parse(((string)row.Cells[3].Value).Trim('%'));
+            }
+            textBox2.Text = Math.Round(sum, 2).ToString(); // Вывод баллов
+
+
+                if (listBox5.Items.Count > 0)
             {
                 foreach (string rowRez in listBox5.Items)
                 {
@@ -620,12 +629,15 @@ namespace clFish
                                 row.Cells[3].Value = Math.Round(float.Parse((string)row.Cells[0].Value) / rez * 100, 2).ToString() + "%";
                                 row.Selected = true;
                                 dgEverest.FirstDisplayedScrollingRowIndex = row.Index;
+                                sp.Play();
                             }
+
 
                         }
                         catch
                         {
                         }
+                        
                     }
                 }
             }

@@ -102,6 +102,8 @@
             this.txtOtEveret = new System.Windows.Forms.TextBox();
             this.tmrFox = new System.Windows.Forms.Timer(this.components);
             this.tmEverest = new System.Windows.Forms.Timer(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -4085,6 +4087,8 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.LemonChiffon;
+            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.button9);
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.chEverest);
@@ -5362,7 +5366,7 @@
             this.dgEverest.Location = new System.Drawing.Point(7, 61);
             this.dgEverest.Name = "dgEverest";
             this.dgEverest.RowTemplate.Height = 27;
-            this.dgEverest.Size = new System.Drawing.Size(308, 221);
+            this.dgEverest.Size = new System.Drawing.Size(308, 183);
             this.dgEverest.TabIndex = 7;
             this.dgEverest.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgEverest_RowsAdded);
             // 
@@ -5463,6 +5467,22 @@
             this.tmEverest.Enabled = true;
             this.tmEverest.Interval = 1000;
             this.tmEverest.Tick += new System.EventHandler(this.tmEverest_Tick);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(164, 249);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 17);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Баллы:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(216, 246);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(98, 25);
+            this.textBox2.TabIndex = 17;
             // 
             // Form1
             // 
@@ -5579,5 +5599,7 @@
         private DataGridViewTextBoxColumn doE;
         private DataGridViewTextBoxColumn Blizko;
         private DataGridViewTextBoxColumn procent;
+        private TextBox textBox2;
+        private Label label12;
     }
 }
