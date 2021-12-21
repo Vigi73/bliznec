@@ -80,6 +80,8 @@
             this.chFox = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.chEverest = new System.Windows.Forms.CheckBox();
@@ -93,6 +95,7 @@
             this.doE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Blizko = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.procent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tmpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button6 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -102,8 +105,6 @@
             this.txtOtEveret = new System.Windows.Forms.TextBox();
             this.tmrFox = new System.Windows.Forms.Timer(this.components);
             this.tmEverest = new System.Windows.Forms.Timer(this.components);
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -4112,6 +4113,25 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Эверест";
             // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.textBox2.ForeColor = System.Drawing.SystemColors.Info;
+            this.textBox2.Location = new System.Drawing.Point(205, 246);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(109, 25);
+            this.textBox2.TabIndex = 17;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(151, 249);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 17);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Баллы:";
+            // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(326, 97);
@@ -5357,12 +5377,15 @@
             // dgEverest
             // 
             this.dgEverest.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.dgEverest.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgEverest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEverest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.weight,
             this.doE,
             this.Blizko,
-            this.procent});
+            this.procent,
+            this.tmpS});
+            this.dgEverest.GridColor = System.Drawing.SystemColors.Menu;
             this.dgEverest.Location = new System.Drawing.Point(7, 61);
             this.dgEverest.Name = "dgEverest";
             this.dgEverest.RowTemplate.Height = 27;
@@ -5386,7 +5409,7 @@
             // 
             this.Blizko.HeaderText = "Ваш";
             this.Blizko.Name = "Blizko";
-            this.Blizko.Width = 60;
+            this.Blizko.Width = 70;
             // 
             // procent
             // 
@@ -5394,6 +5417,12 @@
             this.procent.Name = "procent";
             this.procent.ReadOnly = true;
             this.procent.Width = 55;
+            // 
+            // tmpS
+            // 
+            this.tmpS.HeaderText = "maxIntValue";
+            this.tmpS.Name = "tmpS";
+            this.tmpS.Visible = false;
             // 
             // button6
             // 
@@ -5467,22 +5496,6 @@
             this.tmEverest.Enabled = true;
             this.tmEverest.Interval = 1000;
             this.tmEverest.Tick += new System.EventHandler(this.tmEverest_Tick);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(164, 249);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 17);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "Баллы:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(216, 246);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(98, 25);
-            this.textBox2.TabIndex = 17;
             // 
             // Form1
             // 
@@ -5595,11 +5608,12 @@
         private System.Windows.Forms.Timer tmEverest;
         private Label label11;
         private Button button9;
+        private TextBox textBox2;
+        private Label label12;
         private DataGridViewTextBoxColumn weight;
         private DataGridViewTextBoxColumn doE;
         private DataGridViewTextBoxColumn Blizko;
         private DataGridViewTextBoxColumn procent;
-        private TextBox textBox2;
-        private Label label12;
+        private DataGridViewTextBoxColumn tmpS;
     }
 }

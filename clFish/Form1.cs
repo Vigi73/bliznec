@@ -548,7 +548,7 @@ namespace clFish
             {
                // int FishRez = currFishRez(i, currentTrunk);  
 
-               dgEverest.Rows.Add(i.ToString(), (i + stepE).ToString(), $"{maxV}", $"{0.0}%");
+               dgEverest.Rows.Add(i.ToString(), (i + stepE).ToString(), $"{0}", $"{0.0}%", $"{maxV}");
             }
         }
 
@@ -599,13 +599,13 @@ namespace clFish
         // Вставляем выловленный рез в таблицу
         private void button9_Click(object sender, EventArgs e)
         {
-            float sum = 0f;
+            float score = 0f;
 
             foreach (DataGridViewRow row in dgEverest.Rows)
             {
-                sum += float.Parse(((string)row.Cells[3].Value).Trim('%'));
+                 score += float.Parse(((string)row.Cells[3].Value).Trim('%')) * 100;
             }
-            textBox2.Text = Math.Round(sum, 2).ToString(); // Вывод баллов
+            textBox2.Text = Math.Round(score , 2).ToString(); // Вывод баллов
 
 
                 if (listBox5.Items.Count > 0)
@@ -622,10 +622,11 @@ namespace clFish
                         {
                             if (rez >= Int32.Parse((string)row.Cells[0].Value) &&
                                 rez < Int32.Parse((string)row.Cells[1].Value) &&
-                                rez < Int32.Parse((string)row.Cells[2].Value))
+                                rez < Int32.Parse((string)row.Cells[4].Value))
                             {
                                 dgEverest.ClearSelection();
                                 row.Cells[2].Value = $"{rez}";
+                                row.Cells[4].Value = $"{rez}";
                                 row.Cells[3].Value = Math.Round(float.Parse((string)row.Cells[0].Value) / rez * 100, 2).ToString() + "%";
                                 row.Selected = true;
                                 dgEverest.FirstDisplayedScrollingRowIndex = row.Index;
