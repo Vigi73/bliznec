@@ -4115,9 +4115,9 @@
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.textBox2.BackColor = System.Drawing.SystemColors.HotTrack;
             this.textBox2.ForeColor = System.Drawing.SystemColors.Info;
-            this.textBox2.Location = new System.Drawing.Point(205, 246);
+            this.textBox2.Location = new System.Drawing.Point(208, 254);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(109, 25);
             this.textBox2.TabIndex = 17;
@@ -4126,7 +4126,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(151, 249);
+            this.label12.Location = new System.Drawing.Point(160, 258);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 17);
             this.label12.TabIndex = 16;
@@ -5389,7 +5389,7 @@
             this.dgEverest.Location = new System.Drawing.Point(7, 61);
             this.dgEverest.Name = "dgEverest";
             this.dgEverest.RowTemplate.Height = 27;
-            this.dgEverest.Size = new System.Drawing.Size(308, 183);
+            this.dgEverest.Size = new System.Drawing.Size(308, 194);
             this.dgEverest.TabIndex = 7;
             this.dgEverest.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgEverest_RowsAdded);
             // 
