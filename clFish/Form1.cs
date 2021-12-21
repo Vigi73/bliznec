@@ -607,7 +607,7 @@ namespace clFish
                     int rez = Int32.Parse(rowRez);
 
 
-                        foreach (DataGridViewRow row in dgEverest.Rows)
+                    foreach (DataGridViewRow row in dgEverest.Rows)
                     {
                         try
                         {
@@ -620,7 +620,6 @@ namespace clFish
                                 row.Cells[3].Value = Math.Round(float.Parse((string)row.Cells[0].Value) / rez * 100, 2).ToString() + "%";
                                 row.Selected = true;
                                 dgEverest.FirstDisplayedScrollingRowIndex = row.Index;
-
                             }
 
                         }
@@ -630,11 +629,7 @@ namespace clFish
                     }
                 }
             }
-
         }
-
-
-
         //================================ if fish =======================================
 
         private void fox_fish(string? lastRow)
