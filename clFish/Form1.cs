@@ -30,11 +30,17 @@ namespace clFish
             InitializeComponent();
 
             dgEverest.AllowUserToAddRows = false;
+            dgRange.AllowUserToDeleteRows = false;
+
 
             dgEverest.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
+            dgRange.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 7, FontStyle.Bold);
 
             for (int i = 0; i < dgEverest.Columns.Count; i++)
                 dgEverest.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            for (int i = 0; i < dgRange.Columns.Count; i++)
+                dgRange.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             button2.Visible = false;
             if (!fl)
@@ -292,7 +298,7 @@ namespace clFish
                
         private void tmrFox_Tick(object sender, EventArgs e)
         {
-            if (chFox.Checked)
+            if (chFox.Checked && listBox1.Items.Count > 0)
             {
                 try
                 {
@@ -566,13 +572,13 @@ namespace clFish
         // Таймер эвереста
         private void tmEverest_Tick(object sender, EventArgs e)
         {
-            if (chEverest.Checked)
+            if (chEverest.Checked && listBox1.Items.Count > 0)
             {
                 
                 string lastRowForFox = listBox1.Items[^1].ToString();
                 int currVes = GetFish(lastRowForFox.Split(";")[1]);
                 string currFIshName = lastRowForFox.Split(';')[0];
-                int index = lbFishE.FindString(currFIshName);
+                int index = lbFishE.FindString(currFIshName); // поиск текущей рыбы в садке
                 
 
 
@@ -643,6 +649,98 @@ namespace clFish
                 }
             }
         }
+
+        // Заполняем таблицу заданием для диапазонов
+        private void btnDAddTable_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int otD = int.Parse(txtDOt.Text);
+                int doD = int.Parse(txtDDo.Text);
+                int maxV = int.MaxValue;
+                string fishRange = cbDFish.Text;
+                string conditionRange = cbDCondition.Text;
+               
+                //Добавить запись в таблицу 
+                dgRange.Rows.Add(fishRange, $"{otD}", $"{doD}", conditionRange, $"{0}", $"{0.00}%", $"{maxV}");
+            }
+            catch
+            {
+                MessageBox.Show("Не все данные введены...");
+            }
+
+        }
+        // Удаляем запись из таблицы
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgRange.Rows.Remove(dgRange.Rows[dgRange.CurrentRow.Index]);
+            }
+            catch
+            {
+            }
+        }
+        // отслеживаем улов Диапазоны
+        private void tmRange_Tick(object sender, EventArgs e)
+        {
+            if (chRange.Checked && listBox1.Items.Count > 0)
+            {
+                var lastRowForFox = listBox1.Items[^1].ToString();
+
+                var dataLogFish = lastRowForFox.Split(";");
+
+                string curFish = dataLogFish[0].Trim();
+                int currFishWeight = GetFish(dataLogFish[1]);
+
+               
+                foreach (DataGridViewRow row in dgRange.Rows)
+                {
+                    try
+                    {
+
+                        switch (row.Cells[3].Value)
+                        {
+                            case ">=":
+                                if ((string)row.Cells[0].Value == curFish && currFishWeight >= int.Parse((string)row.Cells[1].Value) &&
+                                    currFishWeight <= int.Parse((string)row.Cells[2].Value) && currFishWeight > int.Parse((string)row.Cells[4].Value))
+                                {
+                                    dgRange.ClearSelection();
+                                    row.Cells[4].Value = $"{currFishWeight}";
+                                    row.Cells[5].Value = $"{Math.Round(currFishWeight / float.Parse((string)row.Cells[2].Value) * 100, 2)}%";
+                                    row.Selected = true;
+                                    dgRange.FirstDisplayedScrollingRowIndex = row.Index;
+                                    sp.Play();
+                                }
+
+
+                                break;
+                            case "<=":
+                                if ((string)row.Cells[0].Value == curFish && currFishWeight >= int.Parse((string)row.Cells[1].Value) &&
+                                    currFishWeight <= int.Parse((string)row.Cells[2].Value) && currFishWeight < int.Parse((string)row.Cells[6].Value))
+                                {
+                                    dgRange.ClearSelection();
+                                    row.Cells[4].Value = $"{currFishWeight}";
+                                    row.Cells[6].Value = $"{currFishWeight}";
+                                    row.Cells[5].Value = $"{Math.Round(float.Parse((string)row.Cells[1].Value) / currFishWeight  * 100, 2)}%";
+                                    row.Selected = true;
+                                    dgRange.FirstDisplayedScrollingRowIndex = row.Index;
+                                    sp.Play();
+                                }
+
+                                break;
+                        }
+                    }
+                    catch { }
+                }
+
+
+
+            }
+        }
+
+
+
         //================================ if fish =======================================
 
         private void fox_fish(string? lastRow)
