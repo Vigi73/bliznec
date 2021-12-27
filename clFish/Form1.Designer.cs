@@ -120,6 +120,9 @@
             this.RangeProc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RangeMAxValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -170,6 +173,7 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgRange)).BeginInit();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -6854,6 +6858,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.pictureBox3);
+            this.tabPage5.Controls.Add(this.comboBox4);
+            this.tabPage5.Controls.Add(this.textBox18);
             this.tabPage5.Controls.Add(this.checkBox4);
             this.tabPage5.Controls.Add(this.button12);
             this.tabPage5.Controls.Add(this.button11);
@@ -6867,6 +6874,35 @@
             this.tabPage5.Text = "Проф";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(250, 59);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            ">",
+            "<"});
+            this.comboBox4.Location = new System.Drawing.Point(214, 68);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(42, 23);
+            this.comboBox4.TabIndex = 6;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(6, 68);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.PlaceholderText = "Вес для ограничений в граммах";
+            this.textBox18.Size = new System.Drawing.Size(203, 23);
+            this.textBox18.TabIndex = 5;
+            // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
@@ -6879,7 +6915,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(371, 170);
+            this.button12.Location = new System.Drawing.Point(371, 171);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(75, 23);
             this.button12.TabIndex = 3;
@@ -7243,6 +7279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgRange)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -7382,5 +7419,8 @@
         private TextBox textBox15;
         private TextBox textBox16;
         private TextBox textBox17;
+        private ComboBox comboBox4;
+        private TextBox textBox18;
+        private PictureBox pictureBox3;
     }
 }
