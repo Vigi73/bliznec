@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Fx7VfX6kxaSJ8nS2ePOoDHx+RmZnPf6Y7I0z9f9n2tAijwOrv+P+dFV8r6UG/aO5q0n97jzd9BeFzy/gfcWxRQ==",
+  "dgSpecHash": "jcRGiM9Nvc1zd4LS3i7oz7y0RBSwXRkBKWG5ip2V9Jx/BN6DUe6bY2yCs2oDmCsCCfftLk99nuIHPunNSHMqCQ==",
   "success": true,
-  "projectFilePath": "D:\\projects\\c#\\bliznec\\clFish\\clFish.csproj",
+  "projectFilePath": "E:\\projects\\c#\\bliznec\\clFish\\clFish.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\User\\.nuget\\packages\\opencv\\2.4.11\\opencv.2.4.11.nupkg.sha512"
+    "C:\\Users\\Vigi\\.nuget\\packages\\opencv\\2.4.11\\opencv.2.4.11.nupkg.sha512"
   ],
   "logs": []
 }

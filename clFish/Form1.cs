@@ -744,6 +744,20 @@ namespace clFish
 
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            List<int> list = new List<int> { 2, 9, 12, 17, 21, 24, 38, 43, 59, 60, 65, 73, 81, 92, 99 };
+
+            for (var i = 0; i < list.Count; i++)
+            {
+                for (var j = 0; j < 2; j++)
+                {
+
+                }
+            }
+            dataGridView1.Columns.Add("Column1", "01");
+        }
+
 
 
         //================================ if fish =======================================
