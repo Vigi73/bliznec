@@ -6858,6 +6858,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.tabPage5.Controls.Add(this.pictureBox3);
             this.tabPage5.Controls.Add(this.comboBox4);
             this.tabPage5.Controls.Add(this.textBox18);
@@ -6872,14 +6873,13 @@
             this.tabPage5.Size = new System.Drawing.Size(452, 250);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Проф";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(6, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(250, 59);
+            this.pictureBox3.Size = new System.Drawing.Size(369, 59);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
