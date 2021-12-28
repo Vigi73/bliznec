@@ -31,7 +31,21 @@ namespace clFish
 
             dgEverest.AllowUserToAddRows = false;
             dgRange.AllowUserToDeleteRows = false;
+            
+            dataGridView1.ColumnHeadersVisible = false;
+            dataGridView2.ColumnHeadersVisible = false;
 
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView2.RowHeadersVisible = false;
+
+           
+            for (int i = 0; i < 3; i++)
+            {
+                dataGridView1.Rows.Add("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ");
+                dataGridView2.Rows.Add("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ");
+            }
+
+            
 
             dgEverest.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
             dgRange.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 7, FontStyle.Bold);
@@ -41,6 +55,10 @@ namespace clFish
 
             for (int i = 0; i < dgRange.Columns.Count; i++)
                 dgRange.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                dataGridView1.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
 
             button2.Visible = false;
             if (!fl)
@@ -743,19 +761,444 @@ namespace clFish
         {
 
         }
-
+        // create new card 1
         private void button11_Click(object sender, EventArgs e)
         {
-            List<int> list = new List<int> { 2, 9, 12, 17, 21, 24, 38, 43, 59, 60, 65, 73, 81, 92, 99 };
-
-            for (var i = 0; i < list.Count; i++)
+            try
             {
-                for (var j = 0; j < 2; j++)
-                {
+                dataGridView1.ClearSelection();
 
+
+                var od = new List<int>();
+                var dv = new List<int>();
+                var tr = new List<int>();
+                var ch = new List<int>();
+                var py = new List<int>();
+                var sh = new List<int>();
+                var se = new List<int>();
+                var vo = new List<int>();
+                var de = new List<int>();
+
+                var listTemp = Clipboard.GetText().Split(",");
+
+                List<int> list = new List<int>();
+
+                foreach (string value in listTemp)
+                {
+                    list.Add(Int32.Parse(value));
                 }
+
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    switch (list[i])
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                        case 9:
+                            od.Add(list[i]); // Добавляем в список если до 10
+                                             //listBox6.Items.Add(list[i]);
+                            break;
+
+                        case 10:
+                        case 11:
+                        case 12:
+                        case 13:
+                        case 14:
+                        case 15:
+                        case 16:
+                        case 17:
+                        case 18:
+                        case 19:
+                            dv.Add(list[i]); // Добавляем в список если до 20
+                            break;
+
+                        case 20:
+                        case 21:
+                        case 22:
+                        case 23:
+                        case 24:
+                        case 25:
+                        case 26:
+                        case 27:
+                        case 28:
+                        case 29:
+                            tr.Add(list[i]); // Добавляем в список если до 30
+                            break;
+
+                        case 30:
+                        case 31:
+                        case 32:
+                        case 33:
+                        case 34:
+                        case 35:
+                        case 36:
+                        case 37:
+                        case 38:
+                        case 39:
+                            ch.Add(list[i]); // Добавляем в список если до 40
+                            break;
+
+                        case 40:
+                        case 41:
+                        case 42:
+                        case 43:
+                        case 44:
+                        case 45:
+                        case 46:
+                        case 47:
+                        case 48:
+                        case 49:
+                            py.Add(list[i]); // Добавляем в список если до 50
+                            break;
+
+                        case 50:
+                        case 51:
+                        case 52:
+                        case 53:
+                        case 54:
+                        case 55:
+                        case 56:
+                        case 57:
+                        case 58:
+                        case 59:
+                            sh.Add(list[i]); // Добавляем в список если до 60
+                            break;
+
+                        case 60:
+                        case 61:
+                        case 62:
+                        case 63:
+                        case 64:
+                        case 65:
+                        case 66:
+                        case 67:
+                        case 68:
+                        case 69:
+                            se.Add(list[i]); // Добавляем в список если до 70
+                            break;
+
+                        case 70:
+                        case 71:
+                        case 72:
+                        case 73:
+                        case 74:
+                        case 75:
+                        case 76:
+                        case 77:
+                        case 78:
+                        case 79:
+                            vo.Add(list[i]); // Добавляем в список если до 80
+                            break;
+
+                        case 80:
+                        case 81:
+                        case 82:
+                        case 83:
+                        case 84:
+                        case 85:
+                        case 86:
+                        case 87:
+                        case 88:
+                        case 89:
+                        case 90:
+                        case 91:
+                        case 92:
+                        case 93:
+                        case 94:
+                        case 95:
+                        case 96:
+                        case 97:
+                        case 98:
+                        case 99:
+                            de.Add(list[i]); // Добавляем в список если до 70
+                            break;
+                    }
+                }
+                AddRowRez1(0, od);
+                AddRowRez1(1, dv);
+                AddRowRez1(2, tr);
+                AddRowRez1(3, ch);
+                AddRowRez1(4, py);
+                AddRowRez1(5, sh);
+                AddRowRez1(6, se);
+                AddRowRez1(7, vo);
+                AddRowRez1(8, de);
+                button11.Enabled = false;
             }
-            dataGridView1.Columns.Add("Column1", "01");
+            catch { }
+            
+
+        }
+
+
+        // Метод расстановки цифр в карте 1
+        private void AddRowRez1(int v, List<int> zn)
+        {
+            Random rnd = new Random();
+
+            switch (zn.Count)
+            {
+
+                case 1:
+                    int vlz = rnd.Next(0, 3);
+                    dataGridView1[v, vlz].Value = $"{zn[0]}";
+                    break;
+                case 2:
+                    switch (rnd.Next(1, 4))
+                    {
+                        case 1:
+                            dataGridView1[v, 0].Value = $"{zn[0]}";
+                            dataGridView1[v, 1].Value = $"{zn[1]}";
+                            break;
+                        case 2:
+                            dataGridView1[v, 0].Value = $"{zn[0]}";
+                            dataGridView1[v, 2].Value = $"{zn[1]}";
+                            break;
+                        case 3:
+                            dataGridView1[v, 1].Value = $"{zn[0]}";
+                            dataGridView1[v, 2].Value = $"{zn[1]}";
+                            break;
+                    }
+
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        dataGridView1[v, i].Value = $"{zn[i]}";
+                    }
+                    break;
+            }
+        }
+
+
+        // Метод расстановки цифр в карте 2
+        private void AddRowRez2(int v, List<int> zn)
+        {
+            Random rnd = new Random();
+
+            switch (zn.Count)
+            {
+
+                case 1:
+                    int vlz = rnd.Next(0, 3);
+                    dataGridView2[v, vlz].Value = $"{zn[0]}";
+                    break;
+                case 2:
+                    switch (rnd.Next(1, 4))
+                    {
+                        case 1:
+                            dataGridView2[v, 0].Value = $"{zn[0]}";
+                            dataGridView2[v, 1].Value = $"{zn[1]}";
+                            break;
+                        case 2:
+                            dataGridView2[v, 0].Value = $"{zn[0]}";
+                            dataGridView2[v, 2].Value = $"{zn[1]}";
+                            break;
+                        case 3:
+                            dataGridView2[v, 1].Value = $"{zn[0]}";
+                            dataGridView2[v, 2].Value = $"{zn[1]}";
+                            break;
+                    }
+
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        dataGridView2[v, i].Value = $"{zn[i]}";
+                    }
+                    break;
+            }
+        }
+
+
+
+
+        // creat new card 2
+        private void button12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView2.ClearSelection();
+
+
+                var od = new List<int>();
+                var dv = new List<int>();
+                var tr = new List<int>();
+                var ch = new List<int>();
+                var py = new List<int>();
+                var sh = new List<int>();
+                var se = new List<int>();
+                var vo = new List<int>();
+                var de = new List<int>();
+
+                //string buff = Clipboard.GetText().Split(",");
+
+
+                var listTemp = Clipboard.GetText().Split(",");
+
+                List<int> list = new List<int>();
+
+                foreach (string value in listTemp)
+                {
+                    list.Add(Int32.Parse(value));
+                }
+
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    switch (list[i])
+                    {
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                        case 9:
+                            od.Add(list[i]); // Добавляем в список если до 10
+                                             //listBox6.Items.Add(list[i]);
+                            break;
+
+                        case 10:
+                        case 11:
+                        case 12:
+                        case 13:
+                        case 14:
+                        case 15:
+                        case 16:
+                        case 17:
+                        case 18:
+                        case 19:
+                            dv.Add(list[i]); // Добавляем в список если до 20
+                            break;
+
+                        case 20:
+                        case 21:
+                        case 22:
+                        case 23:
+                        case 24:
+                        case 25:
+                        case 26:
+                        case 27:
+                        case 28:
+                        case 29:
+                            tr.Add(list[i]); // Добавляем в список если до 30
+                            break;
+
+                        case 30:
+                        case 31:
+                        case 32:
+                        case 33:
+                        case 34:
+                        case 35:
+                        case 36:
+                        case 37:
+                        case 38:
+                        case 39:
+                            ch.Add(list[i]); // Добавляем в список если до 40
+                            break;
+
+                        case 40:
+                        case 41:
+                        case 42:
+                        case 43:
+                        case 44:
+                        case 45:
+                        case 46:
+                        case 47:
+                        case 48:
+                        case 49:
+                            py.Add(list[i]); // Добавляем в список если до 50
+                            break;
+
+                        case 50:
+                        case 51:
+                        case 52:
+                        case 53:
+                        case 54:
+                        case 55:
+                        case 56:
+                        case 57:
+                        case 58:
+                        case 59:
+                            sh.Add(list[i]); // Добавляем в список если до 60
+                            break;
+
+                        case 60:
+                        case 61:
+                        case 62:
+                        case 63:
+                        case 64:
+                        case 65:
+                        case 66:
+                        case 67:
+                        case 68:
+                        case 69:
+                            se.Add(list[i]); // Добавляем в список если до 70
+                            break;
+
+                        case 70:
+                        case 71:
+                        case 72:
+                        case 73:
+                        case 74:
+                        case 75:
+                        case 76:
+                        case 77:
+                        case 78:
+                        case 79:
+                            vo.Add(list[i]); // Добавляем в список если до 80
+                            break;
+
+                        case 80:
+                        case 81:
+                        case 82:
+                        case 83:
+                        case 84:
+                        case 85:
+                        case 86:
+                        case 87:
+                        case 88:
+                        case 89:
+                        case 90:
+                        case 91:
+                        case 92:
+                        case 93:
+                        case 94:
+                        case 95:
+                        case 96:
+                        case 97:
+                        case 98:
+                        case 99:
+                            de.Add(list[i]); // Добавляем в список если до 70
+                            break;
+                    }
+                }
+                AddRowRez2(0, od);
+                AddRowRez2(1, dv);
+                AddRowRez2(2, tr);
+                AddRowRez2(3, ch);
+                AddRowRez2(4, py);
+                AddRowRez2(5, sh);
+                AddRowRez2(6, se);
+                AddRowRez2(7, vo);
+                AddRowRez2(8, de);
+                button12.Enabled = false;
+            }
+            catch { }
+
+            
         }
 
 
