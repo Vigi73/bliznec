@@ -1029,6 +1029,22 @@ namespace clFish
                 switch (comboBox4.Text)
                 {
                     case "<":
+                        if (rFishProff < int.Parse(textBox18.Text) )
+                        {
+                            if (rFishProff < 10)
+                            {
+                                foreach(DataGridViewRow row in dataGridView1.Rows)
+                                {
+                                    for (int i = 0; i < row.Cells.Count; i++)
+                                    {
+
+                                    }
+                                }
+                            }else
+                            {
+
+                            }
+                        }
                     
                         break;
                     
