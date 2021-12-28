@@ -1019,12 +1019,31 @@ namespace clFish
         // Начинаем играть профи
         private void tmProf_Tick(object sender, EventArgs e)
         {
-            if (chRange.Checked && listBox1.Items.Count > 0)
+            if (cbProff.Checked && listBox1.Items.Count > 0)
             {
                 var lastRowForFox = listBox1.Items[^1].ToString();
 
                 var dataLogFish = lastRowForFox.Split(";");
+                int rFishProff = GetFish(dataLogFish[1]);
+                
+                switch (comboBox4.Text)
+                {
+                    case "<":
+                    
+                        break;
+                    
+                    case ">":
+                        
+                        break;
+                }
+                
+                
+                //dataGridView1[0, 0].Value = "O";
+
+
+
             }
+           //ataGridView1[0, 0].Value = "V";
         }
 
 
