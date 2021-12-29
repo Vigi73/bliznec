@@ -1114,12 +1114,44 @@ namespace clFish
                     case ">":
                         if (rFishProff >= int.Parse(textBox18.Text))
                         {
-
+                            var doubleVes = rFishProff % 100d;
+                            foreach (DataGridViewRow row in dataGridView1.Rows)
+                            {
+                                for (int i = 0; i < row.Cells.Count; i++)
+                                {
+                                    try
+                                    {
+                                        if (int.Parse((string)row.Cells[i].Value) == doubleVes)
+                                        {
+                                            row.Cells[i].Value = "X";
+                                            row.Cells[i].Selected = true;
+                                            sp.Play();
+                                        }
+                                    }
+                                    catch { }
+                                }
+                            }
+                            foreach (DataGridViewRow row in dataGridView2.Rows)
+                            {
+                                for (int i = 0; i < row.Cells.Count; i++)
+                                {
+                                    try
+                                    {
+                                        if (int.Parse((string)row.Cells[i].Value) == doubleVes)
+                                        {
+                                            row.Cells[i].Value = "X";
+                                            row.Cells[i].Selected = true;
+                                            sp.Play();
+                                        }
+                                    }
+                                    catch { }
+                                }
+                            }
                         }
 
                         break;
                 }
-            }            
+            }
         }
 
 
