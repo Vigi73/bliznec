@@ -1112,21 +1112,14 @@ namespace clFish
                     // Условие Больше или ровно
 
                     case ">":
-                        if (rFishProff <= int.Parse(textBox18.Text))
+                        if (rFishProff >= int.Parse(textBox18.Text))
                         {
 
                         }
 
                         break;
                 }
-
-
-                //dataGridView1[0, 0].Value = "O";
-
-
-
-            }
-            //ataGridView1[0, 0].Value = "V";
+            }            
         }
 
 
