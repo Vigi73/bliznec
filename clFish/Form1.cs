@@ -8,7 +8,7 @@ namespace clFish
 {
     public partial class Form1 : Form
     {
-        string tmp = string.Empty;        
+        string tmp = string.Empty;
         bool fl = false;
         bool flm = false;
         int small = default, standings = default;
@@ -17,8 +17,8 @@ namespace clFish
         string path = @"log.txt";
         int wgFish = 0;
         string tVes = string.Empty;
-        List<string> listTmp = new List<string>(new[] {""});
-        List<int> listFox = new List<int>{};
+        List<string> listTmp = new List<string>(new[] { "" });
+        List<int> listFox = new List<int> { };
         int tmpFox = int.MaxValue;
         int ffff = 0;
 
@@ -31,21 +31,21 @@ namespace clFish
 
             dgEverest.AllowUserToAddRows = false;
             dgRange.AllowUserToDeleteRows = false;
-            
+
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView2.ColumnHeadersVisible = false;
 
             dataGridView1.RowHeadersVisible = false;
             dataGridView2.RowHeadersVisible = false;
 
-           
+
             for (int i = 0; i < 3; i++)
             {
                 dataGridView1.Rows.Add("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ");
                 dataGridView2.Rows.Add("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ");
             }
 
-            
+
 
             dgEverest.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
             dgRange.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 7, FontStyle.Bold);
@@ -69,7 +69,7 @@ namespace clFish
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
             listBox1.Items.Clear();
             mainTimer.Enabled = true;
             button1.Visible = false;
@@ -78,11 +78,11 @@ namespace clFish
 
         private void button2_Click(object? sender, EventArgs? e)
         {
-            mainTimer.Enabled=false;
-            button2.Visible=false;
-            button1.Visible=true;
+            mainTimer.Enabled = false;
+            button2.Visible = false;
+            button1.Visible = true;
         }
-                
+
         private void mainTimer_Tick(object sender, EventArgs e)
         {
             if (lstTargets.Items.Count != 0)
@@ -93,11 +93,11 @@ namespace clFish
             {
                 pictureBox1.Visible = false;
             }
-           try
+            try
             {
                 //string s = File.ReadAllLines(path).Last();
                 string s = File.ReadLines(path).Last(); // read last row in the file
-                
+
 
                 if (tmp != s)
                 {
@@ -124,13 +124,13 @@ namespace clFish
                     {
                         toolStripStatusLabel4.Text = $"Max: {mFish}";
                     }
-                    
+
                     tmp = s;
                     listBox1.TopIndex = listBox1.Items.Count - 1; // for autoscrolling
                 }
             }
             catch (Exception ex)
-            {   
+            {
             }
         }
 
@@ -148,7 +148,7 @@ namespace clFish
             {
                 maxFish = result;
                 return widthFish;
-            }   
+            }
             else
             {
                 return string.Empty;
@@ -163,7 +163,7 @@ namespace clFish
             listBox1.Items.Add("Лог файл очищен...");
             tmp = String.Empty;
         }
-                
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (!fl)
@@ -182,14 +182,14 @@ namespace clFish
 
                     proc[0].Kill();
                     proc[1].Kill();
-                    
+
                 }
                 catch
                 {
 
                 }
             }
-            
+
         }
 
         private void chTimer_Tick(object sender, EventArgs e)
@@ -211,19 +211,19 @@ namespace clFish
                     var lastRow = listBox1.Items[^1].ToString();
                     bliznec(lastRow);
                 }
-                catch 
+                catch
                 {
                 }
                 button4_Click(null, null);
             }
 
             // Если поиск Охота на лис
-            
+
         }
 
         string ttmp = string.Empty;
 
-        
+
         private void getRealFish(string v)
         {
             if (v.Contains('.'))
@@ -239,7 +239,7 @@ namespace clFish
                     case 1:
                         tVes = v.Replace(".", "") + "00";
                         break;
-                }   
+                }
             }
             else
             {
@@ -247,10 +247,10 @@ namespace clFish
             }
 
             //txtLog.Text = tVes;
-            
+
         }
         public SoundPlayer sp = new SoundPlayer(Properties.Resources.bonus);
-        
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -283,11 +283,11 @@ namespace clFish
             try
             {
                 getRealFish(lastRow.Split(";")[1].Trim());
-                
+
             }
-            catch 
+            catch
             { }
-            
+
 
             if (lastRow.Split(";")[0] == comboBox1.Text && Int32.Parse(tVes) >= Convert.ToInt32(textBox1.Text) || comboBox1.Text == "*")
             {
@@ -305,7 +305,7 @@ namespace clFish
                     listBox3.Items.Add(lastRow.Split(";")[1]);
                     ttmp = lastRow;
                     listBox3.TopIndex = listBox3.Items.Count - 1;
-                }                
+                }
             }
         }
 
@@ -313,7 +313,7 @@ namespace clFish
         {
             Process.Start("yrt.exe");
         }
-               
+
         private void tmrFox_Tick(object sender, EventArgs e)
         {
             if (chFox.Checked && listBox1.Items.Count > 0)
@@ -371,7 +371,7 @@ namespace clFish
 
             return realWeigh;
         }
-// ===================================================================================================================
+        // ===================================================================================================================
 
         string fishTMP = string.Empty;
 
@@ -380,7 +380,7 @@ namespace clFish
             string currentFish = lastRow.Split(';')[1];
             if (currentFish != fishTMP)
             {
-                               
+
 
                 int realF = GetFish(currentFish);
 
@@ -449,7 +449,7 @@ namespace clFish
                         }
                         break;
                 }
-                
+
                 //listBox4.Items.Add(currentFish);
                 fishTMP = currentFish;
 
@@ -457,7 +457,7 @@ namespace clFish
             }
         }
 
-        
+
         // Проверка результатов в списке соответствия рыб
         private void button5_Click(object sender, EventArgs e)
         {
@@ -479,20 +479,20 @@ namespace clFish
 
                     case "<=":
                         resultFish = listFox.Last();
-                        
+
                         break;
                     case ">=":
                         resultFish = listFox[0];
                         break;
                     case "<>":
 
-                    resultFish = GetNearFish(listFox);
-                    break;
+                        resultFish = GetNearFish(listFox);
+                        break;
                 }
 
                 txtB.Text = resultFish.ToString();
                 //lblProc.Text = txtB.Text.ToString();
-                
+
                 try
                 {
                     var rF = double.Parse(txtB.Text);
@@ -505,7 +505,7 @@ namespace clFish
                             lblProc.Text = Math.Round(rT / rF * 100, 2).ToString() + "%";
                         }
                         else
-                        {                            
+                        {
                             lblProc.Text = Math.Round(rF / rT * 100, 2).ToString() + "%";
                         }
                     }
@@ -535,13 +535,13 @@ namespace clFish
                 {
                     if (elm - ideal < tmpFox)
                     {
-                        tmpFox = elm -ideal;
+                        tmpFox = elm - ideal;
                         ffff = elm;
                     }
                 }
 
             }
-            return ffff;           
+            return ffff;
         }
 
         // Добавляем рыбу для задания
@@ -563,16 +563,16 @@ namespace clFish
             int stepE = int.Parse(txtStepEverest.Text);
             int maxV = int.MaxValue;
 
-            
+
 
 
             //заполняем таблицу первый раз
             dgEverest.Rows.Clear();
-            for (var i = otE; i < doE; i+= stepE)
+            for (var i = otE; i < doE; i += stepE)
             {
-               // int FishRez = currFishRez(i, currentTrunk);  
+                // int FishRez = currFishRez(i, currentTrunk);  
 
-               dgEverest.Rows.Add(i.ToString(), (i + stepE).ToString(), $"{0}", $"{0.0}%", $"{maxV}");
+                dgEverest.Rows.Add(i.ToString(), (i + stepE).ToString(), $"{0}", $"{0.0}%", $"{maxV}");
             }
         }
 
@@ -592,12 +592,12 @@ namespace clFish
         {
             if (chEverest.Checked && listBox1.Items.Count > 0)
             {
-                
+
                 string lastRowForFox = listBox1.Items[^1].ToString();
                 int currVes = GetFish(lastRowForFox.Split(";")[1]);
                 string currFIshName = lastRowForFox.Split(';')[0];
                 int index = lbFishE.FindString(currFIshName); // поиск текущей рыбы в садке
-                
+
 
 
                 // если рыба соответствует условию задания то дабавляем ее в основной список рыб
@@ -627,12 +627,12 @@ namespace clFish
 
             foreach (DataGridViewRow row in dgEverest.Rows)
             {
-                 score += float.Parse(((string)row.Cells[3].Value).Trim('%')) * 100;
+                score += float.Parse(((string)row.Cells[3].Value).Trim('%')) * 100;
             }
-            textBox2.Text = Math.Round(score , 2).ToString(); // Вывод баллов
+            textBox2.Text = Math.Round(score, 2).ToString(); // Вывод баллов
 
 
-                if (listBox5.Items.Count > 0)
+            if (listBox5.Items.Count > 0)
             {
                 foreach (string rowRez in listBox5.Items)
                 {
@@ -662,7 +662,7 @@ namespace clFish
                         catch
                         {
                         }
-                        
+
                     }
                 }
             }
@@ -678,7 +678,7 @@ namespace clFish
                 int maxV = int.MaxValue;
                 string fishRange = cbDFish.Text;
                 string conditionRange = cbDCondition.Text;
-               
+
                 //Добавить запись в таблицу 
                 dgRange.Rows.Add(fishRange, $"{otD}", $"{doD}", conditionRange, $"{0}", $"{0.00}%", $"{maxV}");
             }
@@ -711,7 +711,7 @@ namespace clFish
                 string curFish = dataLogFish[0].Trim();
                 int currFishWeight = GetFish(dataLogFish[1]);
 
-               
+
                 foreach (DataGridViewRow row in dgRange.Rows)
                 {
                     try
@@ -740,7 +740,7 @@ namespace clFish
                                     dgRange.ClearSelection();
                                     row.Cells[4].Value = $"{currFishWeight}";
                                     row.Cells[6].Value = $"{currFishWeight}";
-                                    row.Cells[5].Value = $"{Math.Round(float.Parse((string)row.Cells[1].Value) / currFishWeight  * 100, 2)}%";
+                                    row.Cells[5].Value = $"{Math.Round(float.Parse((string)row.Cells[1].Value) / currFishWeight * 100, 2)}%";
                                     row.Selected = true;
                                     dgRange.FirstDisplayedScrollingRowIndex = row.Index;
                                     sp.Play();
@@ -842,7 +842,7 @@ namespace clFish
                 button11.Enabled = false;
             }
             catch { }
-            
+
 
         }
 
@@ -964,39 +964,39 @@ namespace clFish
                 {
                     switch (list[i])
                     {
-                        case <10:
+                        case < 10:
                             od.Add(list[i]); // Добавляем в список если до 10                                            
                             break;
 
-                        case <20:
+                        case < 20:
                             dv.Add(list[i]); // Добавляем в список если до 20
                             break;
 
-                        case <30:
+                        case < 30:
                             tr.Add(list[i]); // Добавляем в список если до 30
                             break;
 
-                        case <40:
+                        case < 40:
                             ch.Add(list[i]); // Добавляем в список если до 40
                             break;
 
-                        case <50:
+                        case < 50:
                             py.Add(list[i]); // Добавляем в список если до 50
                             break;
 
-                        case <60:
+                        case < 60:
                             sh.Add(list[i]); // Добавляем в список если до 60
                             break;
 
-                        case <70:
+                        case < 70:
                             se.Add(list[i]); // Добавляем в список если до 70
                             break;
 
-                        case <80:
+                        case < 80:
                             vo.Add(list[i]); // Добавляем в список если до 80
                             break;
 
-                        case <100:
+                        case < 100:
                             de.Add(list[i]); // Добавляем в список если до 70
                             break;
                     }
@@ -1014,7 +1014,7 @@ namespace clFish
             }
             catch { }
 
-            
+
         }
         // Начинаем играть профи
         private void tmProf_Tick(object sender, EventArgs e)
@@ -1025,41 +1025,108 @@ namespace clFish
 
                 var dataLogFish = lastRowForFox.Split(";");
                 int rFishProff = GetFish(dataLogFish[1]);
-                
+
                 switch (comboBox4.Text)
                 {
                     case "<":
-                        if (rFishProff < int.Parse(textBox18.Text) )
+                        if (rFishProff <= int.Parse(textBox18.Text))
                         {
-                            if (rFishProff < 10)
+                            // Если вес рыбы до 100 грамм
+                            if (rFishProff < 100)
                             {
-                                foreach(DataGridViewRow row in dataGridView1.Rows)
+                                foreach (DataGridViewRow row in dataGridView1.Rows)
                                 {
                                     for (int i = 0; i < row.Cells.Count; i++)
                                     {
-
+                                        try
+                                        {
+                                            if (int.Parse((string)row.Cells[i].Value) == rFishProff)
+                                            {
+                                                row.Cells[i].Value = "X";
+                                                row.Cells[i].Selected = true;
+                                                sp.Play();
+                                            }
+                                        }
+                                        catch { }
                                     }
                                 }
-                            }else
+                                foreach (DataGridViewRow row in dataGridView2.Rows)
+                                {
+                                    for (int i = 0; i < row.Cells.Count; i++)
+                                    {
+                                        try
+                                        {
+                                            if (int.Parse((string)row.Cells[i].Value) == rFishProff)
+                                            {
+                                                row.Cells[i].Value = "X";
+                                                row.Cells[i].Selected = true;
+                                                sp.Play();
+                                            }
+                                        }
+                                        catch { }
+                                    }
+                                }
+
+
+                            }
+                            // Если вес рыбы больше 100 грамм
+                            else
                             {
+                                var doubleVes = rFishProff % 100d;
+                                foreach (DataGridViewRow row in dataGridView1.Rows)
+                                {
+                                    for (int i = 0; i < row.Cells.Count; i++)
+                                    {
+                                        try
+                                        {
+                                            if (int.Parse((string)row.Cells[i].Value) == doubleVes)
+                                            {
+                                                row.Cells[i].Value = "X";
+                                                row.Cells[i].Selected = true;
+                                                sp.Play();
+                                            }
+                                        }
+                                        catch { }
+                                    }
+                                }
+                                foreach (DataGridViewRow row in dataGridView2.Rows)
+                                {
+                                    for (int i = 0; i < row.Cells.Count; i++)
+                                    {
+                                        try
+                                        {
+                                            if (int.Parse((string)row.Cells[i].Value) == doubleVes)
+                                            {
+                                                row.Cells[i].Value = "X";
+                                                row.Cells[i].Selected = true;
+                                                sp.Play();
+                                            }
+                                        }
+                                        catch { }
+                                    }
+                                }
 
                             }
                         }
-                    
                         break;
-                    
+                    // Условие Больше или ровно
+
                     case ">":
-                        
+                        if (rFishProff <= int.Parse(textBox18.Text))
+                        {
+
+                        }
+
                         break;
                 }
-                
-                
+
+
                 //dataGridView1[0, 0].Value = "O";
 
 
 
             }
-           //ataGridView1[0, 0].Value = "V";
+            //ataGridView1[0, 0].Value = "V";
         }
 
 
@@ -1080,7 +1147,7 @@ namespace clFish
                 switch (cbСonditions.Text)
                 {
                     case "=":
-                        if (realF == Int32.Parse(txtWeigh.Text) && cbFishfox.Text == currentFishName) 
+                        if (realF == Int32.Parse(txtWeigh.Text) && cbFishfox.Text == currentFishName)
                         {
                             sp.Play();
                             txtTarget.Text = currentFish;
