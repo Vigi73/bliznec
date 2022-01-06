@@ -1017,8 +1017,10 @@ namespace clFish
 
         }
         // Начинаем играть профи
+        int totalWeight = default;
         private void tmProf_Tick(object sender, EventArgs e)
         {
+            textBox3.Text = $"{totalWeight}";
             if (cbProff.Checked && listBox1.Items.Count > 0)
             {
                 var lastRowForFox = listBox1.Items[^1].ToString();
@@ -1044,6 +1046,7 @@ namespace clFish
                                             {
                                                 row.Cells[i].Value = "X";
                                                 row.Cells[i].Selected = true;
+                                                totalWeight += rFishProff;
                                                 sp.Play();
                                             }
                                         }
@@ -1060,6 +1063,7 @@ namespace clFish
                                             {
                                                 row.Cells[i].Value = "X";
                                                 row.Cells[i].Selected = true;
+                                                totalWeight += rFishProff;
                                                 sp.Play();
                                             }
                                         }
@@ -1083,6 +1087,7 @@ namespace clFish
                                             {
                                                 row.Cells[i].Value = "X";
                                                 row.Cells[i].Selected = true;
+                                                totalWeight += rFishProff;
                                                 sp.Play();
                                             }
                                         }
@@ -1099,6 +1104,7 @@ namespace clFish
                                             {
                                                 row.Cells[i].Value = "X";
                                                 row.Cells[i].Selected = true;
+                                                totalWeight += rFishProff;
                                                 sp.Play();
                                             }
                                         }
@@ -1125,6 +1131,7 @@ namespace clFish
                                         {
                                             row.Cells[i].Value = "X";
                                             row.Cells[i].Selected = true;
+                                            totalWeight += rFishProff;
                                             sp.Play();
                                         }
                                     }
@@ -1141,6 +1148,7 @@ namespace clFish
                                         {
                                             row.Cells[i].Value = "X";
                                             row.Cells[i].Selected = true;
+                                            totalWeight += rFishProff;
                                             sp.Play();
                                         }
                                     }
